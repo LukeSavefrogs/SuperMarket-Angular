@@ -12,6 +12,7 @@ export class ProductService {
   findAll(): Observable<Product[]>{
     return this.http.get<Product[]>(BACKEND_URL + "/product/getListProduct");
   }
+
   findDisponibili(): Observable<Product[]>{
     return this.http.get<Product[]>(BACKEND_URL + "/product/getListProductDisponibile");
   }
