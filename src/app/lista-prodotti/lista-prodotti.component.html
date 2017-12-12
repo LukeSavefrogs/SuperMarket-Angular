@@ -2,3 +2,14 @@
   Lista Prodotti
 </h2>
 
+<mat-list>
+  <mat-list-item *ngFor="let prod of listaProdotti">
+    <img matListAvatar src={{prod.img}}>
+    <h3 matLine> <strong>{{prod.nome}} </strong> </h3>
+    <p matLine>
+      <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span class="info"> Categoria: {{category[prod.categoria]}} </span>
+    </p>
+    <hr>
+  </mat-list-item>
+</mat-list>

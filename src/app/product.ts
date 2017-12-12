@@ -6,7 +6,7 @@ export class Product {
   id: number;
   nome: string;
   marca: string;
-  dataScadenza: Date;
+  dataScadenza: string;
   categoria: Category;
   quantitaDisponibile: number;
   quantitaDaAcquistare: number;
