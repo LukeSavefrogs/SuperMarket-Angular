@@ -60,15 +60,15 @@ export class ListaProdottiComponent implements OnInit {
         quantitaDisponibile: 61, unità: Unita.PEZZO,
         img:"https://www.ocado.com/productImages/269/26965011_0_640x640.jpg?identifier=440a631c3a07cb7426937a3dbcb393a0"
       },
-      {id: 9, nome: "Biscotti per Cani &ldquo;Amici Speciali&rdquo;", categoria: Category.PRODOTTI_CASA, dataScadenza: "10/9/2080", marca: "Omino Bianco",
-        offerta:2, prezzoIvato: 4.30, prezzoSenzaIva: 2.50, prezzoUnitario: 4, quantitaDaAcquistare: null,
-        quantitaDisponibile: 200, unità: Unita.PEZZO,
+      {id: 9, nome: "Biscotti per Cani \"Amici Speciali\"", categoria: Category.ANIMALI, dataScadenza: "10/9/2019", marca: "Coop",
+        offerta:20, prezzoIvato: 5.60, prezzoSenzaIva: 5, prezzoUnitario: 4.30, quantitaDaAcquistare: null,
+        quantitaDisponibile: 150, unità: Unita.PEZZO,
         img:"http://www.coopfirenze.it/uploads/22372/original/14_animali_coop.jpg"
       },
-      {id: 10, nome: "Pril Perfect-Gel Express Power", categoria: Category.PRODOTTI_CASA, dataScadenza: "5/2/2020", marca: "Barilla",
-        offerta:0, prezzoIvato: 4, prezzoSenzaIva: 3.2, prezzoUnitario: 2, quantitaDaAcquistare: null,
-        quantitaDisponibile: 324, unità: Unita.PEZZO,
-        img:"http://www.delfofirenze.it/wp-content/uploads/2016/12/pril-gel.jpg"
+      {id: 10, nome: "Purina One Adult", categoria: Category.ANIMALI, dataScadenza: "9/7/2021", marca: "Purina",
+        offerta:0, prezzoIvato: 7.0, prezzoSenzaIva: 6.80, prezzoUnitario: 6, quantitaDaAcquistare: null,
+        quantitaDisponibile: 101, unità: Unita.PEZZO,
+        img:"https://images-na.ssl-images-amazon.com/images/I/917%2BYnoduaL._SL1500_.jpg"
       },
     ]
   }
