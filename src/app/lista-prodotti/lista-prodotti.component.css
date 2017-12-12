@@ -1,5 +1,15 @@
 .info{
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.43);
+  padding-right: 50px;
+  text-align: right;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.border {
+  border: groove;
+  border-radius: 5px;
+
 }
 
 .preview {
