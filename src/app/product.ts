@@ -1,5 +1,6 @@
 import DateTimeFormat = Intl.DateTimeFormat;
 import {Category} from "./category";
+import {Unita} from "./unita";
 
 export class Product {
   id: number;

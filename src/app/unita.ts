@@ -1,3 +1,3 @@
-export class Unita{
-
+export enum Unita{
+  LITRO, CHILO, ETTO, PEZZO
 }

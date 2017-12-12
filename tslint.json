@@ -87,7 +87,7 @@
     ],
     "radix": true,
     "semicolon": [
-      true,
+      false,
       "always"
     ],
     "triple-equals": [
@@ -108,7 +108,7 @@
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",

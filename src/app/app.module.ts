@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
+import {ProductService} from "./service/product.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -12,9 +14,10 @@ import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.componen
     ListaProdottiComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
