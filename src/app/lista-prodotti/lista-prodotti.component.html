@@ -1,15 +1,43 @@
-<h2>
+<h1>
   Lista Prodotti
-</h2>
+</h1>
+<mat-tab-group>
+  <mat-tab label="List">
+    <mat-list>
+      <mat-list-item *ngFor="let prod of listaProdotti">
+        <img matListAvatar src={{prod.img}}>
+        <h3 matLine><strong>{{prod.nome}} </strong></h3>
+        <p matLine>
+          <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+          <span class="info"> Categoria: {{category[prod.categoria]}} </span>
+        </p>
+        <hr>
+      </mat-list-item>
+    </mat-list>
+  </mat-tab>
 
-<mat-list>
-  <mat-list-item *ngFor="let prod of listaProdotti">
-    <img matListAvatar src={{prod.img}}>
-    <h3 matLine> <strong>{{prod.nome}} </strong> </h3>
-    <p matLine>
-      <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-      <span class="info"> Categoria: {{category[prod.categoria]}} </span>
-    </p>
-    <hr>
-  </mat-list-item>
-</mat-list>
+  <mat-tab label="Grid List">
+    <mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
+      <mat-grid-tile *ngFor="let prod of listaProdotti">
+
+        <img class="preview" src={{prod.img}}>
+
+
+        <mat-grid-tile-header>
+          {{prod.nome}}
+        </mat-grid-tile-header>
+
+
+        <mat-grid-tile-footer>
+          <p>
+            <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+            <span> Categoria: {{category[prod.categoria]}} </span>
+          </p>
+        </mat-grid-tile-footer>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-tab>
+</mat-tab-group>
+

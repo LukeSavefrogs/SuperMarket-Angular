@@ -1,3 +1,19 @@
 .info{
   color: rgba(0, 0, 0, 0.54);
 }
+
+.preview {
+  width: 100%;
+  height: auto;
+  opacity: 0.7;
+}
+
+.preview:hover {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+.background{
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/dTGsD6G/customers-in-a-supermarket-blurred-background_4d8zpaznx__F0000.png")
+}
