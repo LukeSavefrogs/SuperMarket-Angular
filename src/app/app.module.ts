@@ -21,6 +21,7 @@ import {AuthGuardService} from "./service/auth-guard.service";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {FormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
+import { CarrelloComponent } from './carrello/carrello.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ListaProdottiComponent,
     LoginComponent,
     ProductDetailsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CarrelloComponent
   ],
   imports: [
     BrowserModule,
