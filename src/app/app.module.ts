@@ -7,7 +7,7 @@ import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.componen
 import {ProductService} from "./service/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatList, MatListItem, MatListModule} from "@angular/material";
+import {MatGridListModule, MatListModule, MatTabsModule} from "@angular/material";
 
 
 @NgModule({
@@ -20,6 +20,8 @@ import {MatList, MatListItem, MatListModule} from "@angular/material";
     HttpClientModule,
     BrowserAnimationsModule,
     MatListModule,
+    MatTabsModule,
+    MatGridListModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

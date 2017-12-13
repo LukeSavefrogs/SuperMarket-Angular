@@ -12,6 +12,7 @@ import {Unita} from "../unita";
 export class ListaProdottiComponent implements OnInit {
   category = Category;
   listaProdotti: Product[] = new Array<Product>();
+  selected: Product = new Product()
 
   constructor(private service: ProductService) {
     this.listaProdotti = [
@@ -84,4 +85,7 @@ export class ListaProdottiComponent implements OnInit {
     }, e => console.log(e))
   }
 
+  selectProduct(prodotto){
+    this.selected = prodotto;
+  }
 }

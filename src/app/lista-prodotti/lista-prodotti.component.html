@@ -1,16 +1,20 @@
-<h1>
-  Lista Prodotti
-</h1>
+<section class="mat-display-1">
+  <h1>
+    Lista Prodotti
+  </h1>
+  Prodotto selezionato: {{selected.nome}}
+</section>
+
 <mat-tab-group>
   <mat-tab label="List">
     <mat-list>
-      <mat-list-item *ngFor="let prod of listaProdotti">
+      <mat-list-item *ngFor="let prod of listaProdotti" class="border" (click)="selectProduct(prod)">
         <img matListAvatar src={{prod.img}}>
         <h3 matLine><strong>{{prod.nome}} </strong></h3>
-        <p matLine>
-          <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-          <span class="info"> Categoria: {{category[prod.categoria]}} </span>
-        </p>
+          <p matLine>
+            <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+            <span class="info"> Categoria: {{category[prod.categoria]}} </span>
+          </p>
         <hr>
       </mat-list-item>
     </mat-list>
@@ -18,7 +22,7 @@
 
   <mat-tab label="Grid List">
     <mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
-      <mat-grid-tile *ngFor="let prod of listaProdotti">
+      <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="selectProduct(prod)">
 
         <img class="preview" src={{prod.img}}>
 
@@ -41,3 +45,4 @@
   </mat-tab>
 </mat-tab-group>
 
+<app-product-details [selected]="selected"></app-product-details>
