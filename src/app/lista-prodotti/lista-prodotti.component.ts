@@ -42,8 +42,10 @@ export class ListaProdottiComponent implements OnInit {
   openProduct(prodotto){
     this.selected = prodotto;
     const dialogRef = this.dialog.open(ProductDetailsComponent, {
-      data:{prodotto: Product}
-      //height: '350px'
+      data:{prodotto},
+      height: '80%',
+      width: '100%',
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

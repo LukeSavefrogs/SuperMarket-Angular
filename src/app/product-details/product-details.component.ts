@@ -10,7 +10,7 @@ import {MAT_DIALOG_DATA} from "@angular/material";
 export class ProductDetailsComponent implements OnInit {
   //@Input() selected: Product = new Product()
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Product) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     console.log("Prodotto passato a Dettaglio: ", this.data)
