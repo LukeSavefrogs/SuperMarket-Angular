@@ -38,8 +38,16 @@ export class ProductService {
 
   addProdotto(prodotto) {
     this.getCarrello()
-    this.listProdotti.push(prodotto);
-    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    let sommato:boolean= false
+    for(let prod of this.listProdotti)
+      if (prod.id == prodotto.id){
+          prod.quantitaDaAcquistare=prod.quantitaDaAcquistare+1
+          sommato=true
+      }
+    if(!sommato){
+      this.listProdotti.push(prodotto);
+      localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    }
     console.log("Aggiunto: ", prodotto)       //FUNZIONA
   }
 
