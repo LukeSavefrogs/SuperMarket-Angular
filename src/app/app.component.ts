@@ -22,7 +22,7 @@ export class AppComponent {
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', btoa(user.username + ':' + user.password));
         this.logged = true;
-        this.router.navigate(['phone-list']);
+        this.router.navigate(['lista']);
       }, err => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');

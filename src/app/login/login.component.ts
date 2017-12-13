@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       // salva cio che dice il server
       localStorage.setItem('token', btoa(this.user.username + ':' + this.user.password));
       // salva token d'autenticazione (user+password autenticata) e rifà il login in automatico
-      this.router.navigate(['phone-list'], {replaceUrl: true});
+      this.router.navigate(['lista'], {replaceUrl: true});
       location.reload();
     }, err => {
       console.log(err);
