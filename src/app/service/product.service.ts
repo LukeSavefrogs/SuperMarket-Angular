@@ -38,16 +38,19 @@ export class ProductService {
 
   addProdotto(prodotto) {
     this.getCarrello()
-    let sommato:boolean= false
+    let somma: number=1;
+
     for(let prod of this.listProdotti)
       if (prod.id == prodotto.id){
-          prod.quantitaDaAcquistare=prod.quantitaDaAcquistare+1
-          sommato=true
+          this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)
+          somma++
+
+
       }
-    if(!sommato){
+      prodotto.quantitaDaAcquistare=somma
       this.listProdotti.push(prodotto);
       localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
-    }
+
     console.log("Aggiunto: ", prodotto)       //FUNZIONA
   }
 
