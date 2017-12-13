@@ -1,0 +1,20 @@
+<mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
+  <mat-grid-tile *ngFor="let prod of listaProduct">
+
+    <img class="preview" src={{prod.img}}>
+
+
+    <mat-grid-tile-header>
+      {{prod.nome}}
+    </mat-grid-tile-header>
+
+
+    <mat-grid-tile-footer>
+      <p>
+        <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+        <span> Categoria: {{category[prod.categoria]}} </span>
+      </p>
+    </mat-grid-tile-footer>
+
+  </mat-grid-tile>
+</mat-grid-list>

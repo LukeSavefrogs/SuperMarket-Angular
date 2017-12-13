@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../model/product";
+import {Product} from "../model/Product";
 import {ProductService} from "../service/product.service";
-import {Category} from "../model/category";
-import {Unita} from "../model/unita";
+import {Category} from "../model/Category";
+import {Unita} from "../model/Unita";
 import {MatDialog} from "@angular/material";
 import {ProductDetailsComponent} from "../product-details/product-details.component";
 

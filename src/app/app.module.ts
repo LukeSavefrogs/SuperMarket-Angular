@@ -1,9 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 
-import {AppComponent} from './app.component';
-import {ListaProdottiComponent} from './lista-prodotti/lista-prodotti.component';
+import { AppComponent } from './app.component';
+import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 import {ProductService} from "./service/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -20,7 +20,8 @@ import {InterceptorService} from "./service/interceptor.service";
 import {AuthGuardService} from "./service/auth-guard.service";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {FormsModule} from "@angular/forms";
-import {RegistrationComponent} from './registration/registration.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { CarrelloComponent } from './carrello/carrello.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {RegistrationComponent} from './registration/registration.component';
     ListaProdottiComponent,
     LoginComponent,
     ProductDetailsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CarrelloComponent
   ],
   imports: [
     BrowserModule,
@@ -55,5 +57,4 @@ import {RegistrationComponent} from './registration/registration.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
