@@ -40,11 +40,12 @@ export class ProductService {
     this.getCarrello()
     let somma: number=1;
 
-    for(let prod of this.listProdotti)
-      if (prod.id == prodotto.id){
-          this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)
-          somma++
+    for(let prod of this.listProdotti){
+      if (prod.id == prodotto.id) {
+        somma=somma+prod.quantitaDaAcquistare
+        this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)
 
+      }
 
       }
       prodotto.quantitaDaAcquistare=somma
