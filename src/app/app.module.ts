@@ -8,6 +8,7 @@ import {ProductService} from "./service/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatGridListModule, MatListModule, MatTabsModule} from "@angular/material";
+import {AppRoutingModule} from "./app-routing.module";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatGridListModule, MatListModule, MatTabsModule} from "@angular/material
     BrowserAnimationsModule,
     MatListModule,
     MatTabsModule,
-    MatGridListModule
+    MatGridListModule,
+    AppRoutingModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
