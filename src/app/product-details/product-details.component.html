@@ -1,14 +1,17 @@
-
+<div>
   <hr>
+  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)">
+    <mat-icon>add_shopping_cart</mat-icon>
+    Aggiungi al carrello
+  </button>
+
   <img src={{data.prodotto.img}} class="image">
-  <h2>{{data.prodotto.nome}}</h2>
-  <h4>
-    Disponibili: {{data.prodotto.quantitaDisponibile}}
-  </h4>
+  <h2> {{data.prodotto.nome}} </h2>
+  <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
   <br>
 
-  Prezzo:
-  {{data.prodotto.prezzoIvato}} &euro;
+
+  <div>Prezzo: {{data.prodotto.prezzoIvato}} &euro;</div>
 
   <h4 *ngIf="data.prodotto.offerta != 0" class="notice">
     SCONTO: -{{data.prodotto.offerta}} %
@@ -20,3 +23,4 @@
   <h3>Dettagli prodotto: </h3>
 
   Marca: {{data.prodotto.marca}}
+</div>

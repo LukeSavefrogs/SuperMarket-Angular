@@ -2,9 +2,16 @@
   width: auto;
   height: 300px;
   float: left;
+  padding: 0px 20px 20px 0px;       /*top   right   bottom    left*/
+  margin: auto;
 }
 
 .notice{
   color: red;
   font-style: italic;
+}
+
+.buttons{
+  position: relative;
+  float: right;
 }

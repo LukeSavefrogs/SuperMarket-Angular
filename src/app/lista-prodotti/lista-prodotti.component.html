@@ -19,7 +19,7 @@
     <h3 matLine><strong>{{prod.nome}} </strong></h3>
     <p matLine>
       <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-      <span class="info"> Categoria: {{category[prod.categoria]}} </span>
+      <span class="info"> Categoria: {{prod.categoria}} </span>
     </p>
     <hr>
   </mat-list-item>
@@ -36,7 +36,7 @@
     <mat-grid-tile-footer>
       <p>
         <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-        <span> Categoria: {{category[prod.categoria]}} </span>
+        <span> Categoria: {{prod.categoria}} </span>
       </p>
     </mat-grid-tile-footer>
   </mat-grid-tile>

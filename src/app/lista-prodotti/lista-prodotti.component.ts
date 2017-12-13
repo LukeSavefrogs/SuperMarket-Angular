@@ -15,8 +15,8 @@ export class ListaProdottiComponent implements OnInit {
   category = Category;
   listaProdotti: Product[] = new Array<Product>();
   listaDisponibili: Product[] = new Array<Product>();
-  selected: Product = new Product()
-  lista: boolean = false
+  selected: Product = new Product();
+  lista: boolean = false;
   constructor(private service: ProductService, public dialog: MatDialog) {
   }
 

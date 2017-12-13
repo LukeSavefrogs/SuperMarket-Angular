@@ -36,6 +36,7 @@ export class ProductService {
     this.getCarrello()
     this.listProdotti.push(prodotto);
     localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    console.log("Aggiunto: ", prodotto)
   }
 
   deleteCarrello(product): Observable<Product> {
