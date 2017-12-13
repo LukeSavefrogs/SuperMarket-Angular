@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../product";
+import {Product} from "../model/product";
 import {ProductService} from "../service/product.service";
-import {Category} from "../category";
-import {Unita} from "../unita";
+import {Category} from "../model/category";
+import {Unita} from "../model/unita";
+import {MatDialog} from "@angular/material";
+import {ProductDetailsComponent} from "../product-details/product-details.component";
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -15,7 +17,7 @@ export class ListaProdottiComponent implements OnInit {
   listaDisponibili: Product[] = new Array<Product>();
   selected: Product = new Product()
 
-  constructor(private service: ProductService) {
+  constructor(private service: ProductService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -37,7 +39,15 @@ export class ListaProdottiComponent implements OnInit {
     }, e => console.log(e))
   }
 
-  selectProduct(prodotto){
+  openProduct(prodotto){
     this.selected = prodotto;
+    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+      data:{prodotto: Product}
+      //height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
