@@ -15,7 +15,7 @@ export class ListaProdottiComponent implements OnInit {
   selected: Product = new Product()
 
   constructor(private service: ProductService) {
-    this.listaProdotti = [
+    /*this.listaProdotti = [
       {id: 1, nome: "Latte", categoria: Category.ALIMENTI, dataScadenza: "17/4/2018", marca: "Centrale del Latte",
         offerta:0, prezzoIvato: 2.50, prezzoSenzaIva: 2.00, prezzoUnitario: 0.4, quantitaDaAcquistare: null,
         quantitaDisponibile: 90, unità: Unita.LITRO,
@@ -71,11 +71,11 @@ export class ListaProdottiComponent implements OnInit {
         quantitaDisponibile: 101, unità: Unita.PEZZO,
         img:"https://images-na.ssl-images-amazon.com/images/I/917%2BYnoduaL._SL1500_.jpg"
       },
-    ]
+    ]*/
   }
 
   ngOnInit() {
-    //this.getList()
+    this.getList()
   }
 
   getList(){

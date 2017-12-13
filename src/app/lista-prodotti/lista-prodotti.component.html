@@ -8,7 +8,7 @@
 <mat-tab-group>
   <mat-tab label="List">
     <mat-list>
-      <mat-list-item *ngFor="let prod of listaProdotti" class="border" (click)="selectProduct(prod)">
+      <mat-list-item *ngFor="let prod of listaProdotti" class="" (click)="selectProduct(prod)">
         <img matListAvatar src={{prod.img}}>
         <h3 matLine><strong>{{prod.nome}} </strong></h3>
           <p matLine>
