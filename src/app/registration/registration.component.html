@@ -1,0 +1,15 @@
+<form action="#" method="post" (submit)="registration()">
+  <h2>Pagina di Registrazione</h2>
+  <p>
+    <label for="username" class="floatLabel">Email
+      <input id="username" name="username" type="text" [(ngModel)]="user.username">
+    </label>
+  </p>
+  <p>
+    <label for="password" class="floatLabel">Password
+      <input id="password" name="password" type="password" [(ngModel)]="user.password"></label>
+  </p>
+  <p>
+    <input type="submit" value="SALVA" id="submit">
+  </p>
+</form>
