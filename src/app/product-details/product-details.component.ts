@@ -1,5 +1,5 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {Product} from "../model/product";
+import {Product} from "../model/Product";
 import {MAT_DIALOG_DATA} from "@angular/material";
 
 @Component({
