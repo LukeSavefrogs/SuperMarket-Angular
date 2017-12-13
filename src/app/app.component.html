@@ -1,9 +1,25 @@
-<nav>
-  <a routerLink="/lista">Lista dei Prodotti</a>
-</nav>
+<mat-toolbar>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand" >Amazon</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a routerLink="lista">Home</a></li>
+        <!--<li><a routerLink="/carrello">Carrello</a></li>-->
 
-<nav>
-  <a routerLink="/login">Login</a>
-</nav>
-
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="logged"><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li *ngIf="!logged"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="!logged"><a routerLink="/register"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+      </ul>
+    </div>
+  </div>
+</mat-toolbar>
 <router-outlet></router-outlet>
