@@ -28,3 +28,12 @@
   background-image:
     url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/dTGsD6G/customers-in-a-supermarket-blurred-background_4d8zpaznx__F0000.png")
 }
+
+.icons{
+  text-align: right;
+}
+
+.titolo{
+  text-shadow: rgba(0, 0, 0, 0.73);
+  font-family: Calibri;
+}

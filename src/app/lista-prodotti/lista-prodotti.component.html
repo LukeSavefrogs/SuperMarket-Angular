@@ -1,48 +1,46 @@
-<section class="mat-display-1">
-  <h1>
-    Lista Prodotti
-  </h1>
-  Prodotto selezionato: {{selected.nome}}
+<h1 class="titolo">
+  Lista Prodotti
+</h1>
+
+<hr>
+<section class="icons">
+  <button mat-icon-button (click)="setListaMod(true)">
+    <mat-icon>list</mat-icon>
+  </button>
+  <button mat-icon-button (click)="setListaMod(false)">
+    <mat-icon>view_comfy</mat-icon>
+  </button>
 </section>
+<hr>
 
-<mat-tab-group>
-  <mat-tab label="List">
-    <mat-list>
-      <mat-list-item *ngFor="let prod of listaDisponibili" class="" (click)="openProduct(prod)">
-        <img matListAvatar src={{prod.img}}>
-        <h3 matLine><strong>{{prod.nome}} </strong></h3>
-          <p matLine>
-            <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-            <span class="info"> Categoria: {{category[prod.categoria]}} </span>
-          </p>
-        <hr>
-      </mat-list-item>
-    </mat-list>
-  </mat-tab>
+<mat-list *ngIf="lista===true">
+  <mat-list-item *ngFor="let prod of listaDisponibili" class="" (click)="openProduct(prod)">
+    <img matListAvatar src={{prod.img}}>
+    <h3 matLine><strong>{{prod.nome}} </strong></h3>
+    <p matLine>
+      <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span class="info"> Categoria: {{category[prod.categoria]}} </span>
+    </p>
+    <hr>
+  </mat-list-item>
+</mat-list>
 
-  <mat-tab label="Grid List">
-    <mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
-      <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
+<mat-grid-list cols="5" rowHeight="1:1" gutterSize="50" *ngIf="lista===false">
+  <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
+    <img class="preview" src={{prod.img}}>
 
-        <img class="preview" src={{prod.img}}>
+    <mat-grid-tile-header>
+      {{prod.nome}}
+    </mat-grid-tile-header>
 
+    <mat-grid-tile-footer>
+      <p>
+        <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+        <span> Categoria: {{category[prod.categoria]}} </span>
+      </p>
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
 
-        <mat-grid-tile-header>
-          {{prod.nome}}
-        </mat-grid-tile-header>
-
-
-        <mat-grid-tile-footer>
-          <p>
-            <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-            <span> Categoria: {{category[prod.categoria]}} </span>
-          </p>
-        </mat-grid-tile-footer>
-
-      </mat-grid-tile>
-    </mat-grid-list>
-
-  </mat-tab>
-</mat-tab-group>
 
 <!--<app-product-details [selected]="selected"></app-product-details>-->

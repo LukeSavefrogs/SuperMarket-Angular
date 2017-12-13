@@ -16,7 +16,7 @@ export class ListaProdottiComponent implements OnInit {
   listaProdotti: Product[] = new Array<Product>();
   listaDisponibili: Product[] = new Array<Product>();
   selected: Product = new Product()
-
+  lista: boolean = false
   constructor(private service: ProductService, public dialog: MatDialog) {
   }
 
@@ -51,5 +51,9 @@ export class ListaProdottiComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  setListaMod(param: boolean){
+    this.lista = param;
   }
 }

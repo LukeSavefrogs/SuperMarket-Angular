@@ -1,5 +1,22 @@
-<p>
-  product-details works!<br>
-  <!--Prodotto: {{selected.nome}}-->
-  Prodotto passato: {{data.prodotto.nome}}
-</p>
+
+  <hr>
+  <img src={{data.prodotto.img}} class="image">
+  <h2>{{data.prodotto.nome}}</h2>
+  <h4>
+    Disponibili: {{data.prodotto.quantitaDisponibile}}
+  </h4>
+  <br>
+
+  Prezzo:
+  {{data.prodotto.prezzoIvato}} &euro;
+
+  <h4 *ngIf="data.prodotto.offerta != 0" class="notice">
+    SCONTO: -{{data.prodotto.offerta}} %
+  </h4>
+
+  <hr>
+
+
+  <h3>Dettagli prodotto: </h3>
+
+  Marca: {{data.prodotto.marca}}
