@@ -9,12 +9,21 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatGridListModule, MatListModule, MatTabsModule} from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
+import {LoginComponent} from "./login/login.component";
+import {LoginService} from "./service/login.service";
+import {SharedService} from "./service/shared.service";
+import {InterceptorService} from "./service/interceptor.service";
+import {AuthGuardService} from "./service/auth-guard.service";
+import {ProductDetailsComponent} from "./product-details/product-details.component";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaProdottiComponent
+    ListaProdottiComponent,
+    LoginComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +32,16 @@ import {AppRoutingModule} from "./app-routing.module";
     MatListModule,
     MatTabsModule,
     MatGridListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    LoginService,
+    SharedService,
+    InterceptorService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

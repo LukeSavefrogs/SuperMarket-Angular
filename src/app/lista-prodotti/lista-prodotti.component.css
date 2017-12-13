@@ -25,5 +25,6 @@
 }
 
 .background{
-  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/dTGsD6G/customers-in-a-supermarket-blurred-background_4d8zpaznx__F0000.png")
+  background-image:
+    url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/dTGsD6G/customers-in-a-supermarket-blurred-background_4d8zpaznx__F0000.png")
 }
