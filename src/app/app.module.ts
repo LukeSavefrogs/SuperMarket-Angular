@@ -7,7 +7,7 @@ import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.componen
 import {ProductService} from "./service/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatDialogModule, MatGridListModule, MatListModule, MatTabsModule} from "@angular/material";
+import {MatDialogModule, MatGridListModule, MatListModule, MatTabsModule, MatToolbarModule} from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login/login.component";
 import {LoginService} from "./service/login.service";
@@ -36,7 +36,8 @@ import { RegistrationComponent } from './registration/registration.component';
     MatGridListModule,
     AppRoutingModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule
   ],
   providers: [
     ProductService,
