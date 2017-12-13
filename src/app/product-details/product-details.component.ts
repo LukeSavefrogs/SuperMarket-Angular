@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Product} from "../product";
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Product} from "../model/product";
+import {MAT_DIALOG_DATA} from "@angular/material";
 
 @Component({
   selector: 'app-product-details',
@@ -7,12 +8,12 @@ import {Product} from "../product";
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  @Input()
-  selected: Product = new Product()
+  //@Input() selected: Product = new Product()
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Product) { }
 
   ngOnInit() {
+    console.log("Prodotto passato a Dettaglio: ", this.data)
   }
 
 
