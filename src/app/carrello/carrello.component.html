@@ -1,20 +1,15 @@
-<mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
-  <mat-grid-tile *ngFor="let prod of listaProduct">
-
-    <img class="preview" src={{prod.img}}>
+<button mat-button> <mat-icon>home</mat-icon></button>
 
 
-    <mat-grid-tile-header>
-      {{prod.nome}}
-    </mat-grid-tile-header>
-
-
-    <mat-grid-tile-footer>
-      <p>
-        <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-        <span> Categoria: {{category[prod.categoria]}} </span>
-      </p>
-    </mat-grid-tile-footer>
-
-  </mat-grid-tile>
-</mat-grid-list>
+<mat-list>
+  <mat-list-item *ngFor="let prod of listProduct">
+    <img matListAvatar src={{prod.img}} class="preview">
+    <h3 matLine><strong>{{prod.nome}} </strong></h3>
+    <p matLine>
+      <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
+    </p>
+    <button mat-button (click)="delete(prod)"><mat-icon>delete_forever</mat-icon></button>
+    <hr>
+  </mat-list-item>
+</mat-list>

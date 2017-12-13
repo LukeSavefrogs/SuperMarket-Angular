@@ -4,13 +4,15 @@ import {ListaProdottiComponent} from "./lista-prodotti/lista-prodotti.component"
 import {LoginComponent} from "./login/login.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
 import {RegistrationComponent} from "./registration/registration.component";
+import {CarrelloComponent} from "./carrello/carrello.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'lista', component: ListaProdottiComponent},
   {path: 'login', component: LoginComponent},
   {path: 'detail/:id', component: ProductDetailsComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'carrello', component: CarrelloComponent}
 ]
 @NgModule({
   imports: [
