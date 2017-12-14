@@ -15,7 +15,10 @@
       <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
       <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
     </p>
-    <button mat-button (click)="delete(prod)"><img src="../../assets/Icons/ic_delete_forever_black_48dp_1x.png"></button>
+    <button mat-button (click)="reduce(prod)"><img src="../../assets/Icons/ic_delete_black_24dp_2x.png" class="icons">
+      <span matTooltip="Elimina uno"></span>
+    </button>
+    <button mat-button (click)="delete(prod)"><img src="../../assets/Icons/ic_delete_forever_black_48dp_2x.png" class="icons"></button>
     <hr>
   </mat-list-item>
 </mat-list>

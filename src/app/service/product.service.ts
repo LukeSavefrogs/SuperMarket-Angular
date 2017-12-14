@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "../model/Product";
@@ -11,8 +11,8 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  listProdotti:Array<Product>;
-  eliminato:boolean=false
+  listProdotti: Array<Product>;
+  eliminato: boolean = false
 
   findAll(): Observable<Product[]> {
     return this.http.get<Product[]>(BACKEND_URL + "/product/getListProduct");
@@ -24,6 +24,10 @@ export class ProductService {
 
   getUserListProduct(): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(BACKEND_URL + "/prodotti/prodottiacquistati");
+  }
+
+  generaOfferte(): Observable<string>{
+    return this.http.get<string>(BACKEND_URL+"/prodotti/generaOfferte")
   }
 
   getCarrello() {
@@ -38,36 +42,47 @@ export class ProductService {
 
   addProdotto(prodotto) {
     this.getCarrello()
-    let somma: number=1;
+    let somma: number = 1;
 
-    for(let prod of this.listProdotti){
+    for (let prod of this.listProdotti) {
       if (prod.id == prodotto.id) {
-        somma=somma+prod.quantitaDaAcquistare
+        somma = somma + prod.quantitaDaAcquistare
         this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)
-
       }
-
-      }
-      prodotto.quantitaDaAcquistare=somma
-      this.listProdotti.push(prodotto);
-      localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    }
+    prodotto.quantitaDaAcquistare = somma
+    this.listProdotti.push(prodotto);
+    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
 
     console.log("Aggiunto: ", prodotto)       //FUNZIONA
   }
 
   deleteCarrello(product): Observable<Product> {
     this.getCarrello()
-    this.eliminato=false
+    this.eliminato = false
     console.log("SERVICE PRODUCT - getCarrello() eseguito")
 
     for (let cell of this.listProdotti) {
-      if (cell.id == product.id&&!this.eliminato) {
+      if (cell.id == product.id && !this.eliminato) {
         this.listProdotti.splice(this.listProdotti.indexOf(cell), 1)
         localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
-        this.eliminato=true
+        this.eliminato = true
       }
     }
     console.log("SERVICE PRODUCT - STO USCENDO...")
     return of(product);
+  }
+
+  deleteOne(product): Observable<Product> {
+    this.getCarrello()
+    console.log("SERVICE PRODUCT - deleteOne() partito")
+    for (let cell of this.listProdotti) {
+      if (cell.id == product.id) {
+        cell.quantitaDaAcquistare -= 1;
+        localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+      }
+    }
+    console.log("SERVICE PRODUCT - deleteOne() terminato")
+    return of(product)
   }
 }
