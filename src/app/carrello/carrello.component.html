@@ -1,20 +1,21 @@
-<mat-grid-list cols="5" rowHeight="1:1" gutterSize="50">
-  <mat-grid-tile *ngFor="let prod of listaProduct">
+<!--<button mat-button routerLink="/lista"><img src="../../assets/Icons/ic_home_black_48dp_2x.png" height="96" width="96" class="icons"/>-->
+<!--</button>-->
 
-    <img class="preview" src={{prod.img}}>
+<h1  *ngIf="listProduct.length==0" class="noProduct">
+  Nessun prodotto nel carrello <br> <br>
+  Torna alla lista dei prodotti
 
+</h1>
 
-    <mat-grid-tile-header>
-      {{prod.nome}}
-    </mat-grid-tile-header>
-
-
-    <mat-grid-tile-footer>
-      <p>
-        <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-        <span> Categoria: {{category[prod.categoria]}} </span>
-      </p>
-    </mat-grid-tile-footer>
-
-  </mat-grid-tile>
-</mat-grid-list>
+<mat-list>
+  <mat-list-item *ngFor="let prod of listProduct">
+    <img matListAvatar src={{prod.img}} class="preview">
+    <h3 matLine><strong>{{prod.nome}} </strong></h3>
+    <p matLine>
+      <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
+    </p>
+    <button mat-button (click)="delete(prod)"><img src="../../assets/Icons/ic_delete_forever_black_48dp_1x.png"></button>
+    <hr>
+  </mat-list-item>
+</mat-list>

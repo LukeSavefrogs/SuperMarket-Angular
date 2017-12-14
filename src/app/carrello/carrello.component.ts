@@ -28,15 +28,21 @@ export class CarrelloComponent implements OnInit {
 
   getCarrello(){
     this.listProduct=JSON.parse(localStorage.getItem("carrello"))
+    console.log("CARRELLO - Carrello:", this.listProduct) //FUNZIONA
   }
 
   delete(product){
     console.log(product)
     this.productServices.deleteCarrello(product).subscribe(data => {
       this.getCarrello()
+      console.log(data);
     }, err=>{
       console.log(err);
     })
+  }
+
+  reduce(product){
+    console.log(product)
   }
 
 }

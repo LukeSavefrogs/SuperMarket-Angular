@@ -3,13 +3,17 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "../model/Product";
 import {BACKEND_URL} from "../utils";
+import {of} from "rxjs/observable/of";
 
 @Injectable()
 export class ProductService {
 
   constructor(private http: HttpClient) {
   }
+
   listProdotti:Array<Product>;
+  eliminato:boolean=false
+
   findAll(): Observable<Product[]> {
     return this.http.get<Product[]>(BACKEND_URL + "/product/getListProduct");
   }
@@ -34,21 +38,36 @@ export class ProductService {
 
   addProdotto(prodotto) {
     this.getCarrello()
-    this.listProdotti.push(prodotto);
-    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
-    console.log("Aggiunto: ", prodotto)
+    let somma: number=1;
+
+    for(let prod of this.listProdotti){
+      if (prod.id == prodotto.id) {
+        somma=somma+prod.quantitaDaAcquistare
+        this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)
+
+      }
+
+      }
+      prodotto.quantitaDaAcquistare=somma
+      this.listProdotti.push(prodotto);
+      localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+
+    console.log("Aggiunto: ", prodotto)       //FUNZIONA
   }
 
   deleteCarrello(product): Observable<Product> {
     this.getCarrello()
+    this.eliminato=false
+    console.log("SERVICE PRODUCT - getCarrello() eseguito")
+
     for (let cell of this.listProdotti) {
-      if (cell.id == product.id) {
+      if (cell.id == product.id&&!this.eliminato) {
         this.listProdotti.splice(this.listProdotti.indexOf(cell), 1)
         localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
-        break
+        this.eliminato=true
       }
-
     }
-    return product;
+    console.log("SERVICE PRODUCT - STO USCENDO...")
+    return of(product);
   }
 }

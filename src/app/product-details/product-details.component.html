@@ -1,6 +1,6 @@
 <div>
   <hr>
-  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)">
+  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)" [disabled]="data.prodotto.quantitaDisponibile<=0">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi al carrello
   </button>
