@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.login(this.user).subscribe(data => {
+      this.playLogin()
       console.log(data);
       localStorage.setItem('user', JSON.stringify(data));
       // salva cio che dice il server
@@ -29,7 +30,22 @@ export class LoginComponent implements OnInit {
       location.reload();
     }, err => {
       console.log(err);
+      this.playErr()
     })
+  }
+
+  playLogin(){
+    let audio = new Audio();
+    audio.src = "../../assets/Sounds/Microsoft_Windows_XP_Startup_Sound.mp3";
+    audio.load();
+    audio.play();
+  }
+
+  playErr(){
+    let audio = new Audio();
+    audio.src = "../../assets/Sounds/WINDOWS_XP_ERROR_SOUND.mp3";
+    audio.load();
+    audio.play();
   }
 }
 

@@ -1,3 +1,9 @@
 .flex-spacer[_ngcontent-c1] {
     flex-grow: 1;
 }
+
+.menuStop{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

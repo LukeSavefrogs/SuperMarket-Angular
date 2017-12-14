@@ -23,11 +23,12 @@ export class ProductService {
   }
 
   getUserListProduct(): Observable<Array<Product>> {
-    return this.http.get<Array<Product>>(BACKEND_URL + "/prodotti/prodottiacquistati");
+    return this.http.get<Array<Product>>(BACKEND_URL + "/product/prodottiacquistati");
   }
 
-  generaOfferte(): Observable<string>{
-    return this.http.get<string>(BACKEND_URL+"/prodotti/generaOfferte")
+  generaOfferte(): Observable<string> {
+    console.log("Offerte Generate")
+    return this.http.get<string>(BACKEND_URL + "/product/generaOfferte")
   }
 
   getCarrello() {
@@ -76,12 +77,15 @@ export class ProductService {
   deleteOne(product): Observable<Product> {
     this.getCarrello()
     console.log("SERVICE PRODUCT - deleteOne() partito")
-    for (let cell of this.listProdotti) {
-      if (cell.id == product.id) {
-        cell.quantitaDaAcquistare -= 1;
-        localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    if (product.quantitaDaAcquistare > 1) {
+      for (let cell of this.listProdotti) {
+        if (cell.id == product.id) {
+          cell.quantitaDaAcquistare -= 1;
+          localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+        }
       }
     }
+    else if (product.quantitaDaAcquistare = 0) this.deleteCarrello(product)
     console.log("SERVICE PRODUCT - deleteOne() terminato")
     return of(product)
   }

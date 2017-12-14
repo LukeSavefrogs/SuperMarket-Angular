@@ -14,6 +14,7 @@ export class Product {
   prezzoUnitario: number;
   prezzoSenzaIva: number;
   prezzoIvato: number;
+  prezzoScontato: number
   img: string;
   offerta: number;
 }

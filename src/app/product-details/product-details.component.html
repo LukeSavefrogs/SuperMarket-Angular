@@ -1,6 +1,7 @@
 <div>
   <hr>
-  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)" [disabled]="data.prodotto.quantitaDisponibile<=0">
+  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
+          [disabled]="data.prodotto.quantitaDisponibile<=0">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi al carrello
   </button>
@@ -10,17 +11,25 @@
   <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
   <br>
 
+  <div *ngIf="data.prodotto.offerta == 0"> Prezzo: {{data.prodotto.prezzoIvato}} &euro;</div>
 
-  <div>Prezzo: {{data.prodotto.prezzoIvato}} &euro;</div>
-
-  <h4 *ngIf="data.prodotto.offerta != 0" class="notice">
-    SCONTO: -{{data.prodotto.offerta}} %
+  <h4 *ngIf="data.prodotto.offerta != 0">
+    <del>Prezzo consigliato: {{data.prodotto.prezzoIvato}} &euro;</del>
+    <span class="sconto"> SCONTO: -{{data.prodotto.offerta}} %</span>
+    <br>
+    Prezzo: &euro; {{data.prodotto.prezzoScontato}}
   </h4>
-
   <hr>
-
-
-  <h3>Dettagli prodotto: </h3>
-
-  Marca: {{data.prodotto.marca}}
+  <div>
+    <h3>Dettagli prodotto: </h3>
+    <h5>
+      <strong>Marca:  </strong> {{data.prodotto.marca}}
+      <br><br>
+      <strong>Data di Scadenza:  </strong> {{data.prodotto.dataScadenza}}
+      <br><br>
+      <strong>Categoria:  </strong> {{data.prodotto.categoria}}
+      <br><br>
+      <strong>Prezzo senza IVA: </strong> {{data.prodotto.prezzoSenzaIva}}
+    </h5>
+  </div>
 </div>
