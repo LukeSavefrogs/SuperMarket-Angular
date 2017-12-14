@@ -44,12 +44,8 @@ import { CarrelloComponent } from './carrello/carrello.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule;
-  const MATERIAL_MODULES = [
-    MdIconModule,
-    MdInputModule,
-    MdContentModule
-  ],
+    MatIconModule,
+    ],
 
   providers: [
     ProductService,
