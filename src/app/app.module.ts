@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 import {ProductService} from "./service/product.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule,
-  MatDialogModule, MatGridListModule, MatIcon, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatToolbarModule} from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login/login.component";
@@ -27,7 +27,8 @@ import { CarrelloComponent } from './carrello/carrello.component';
     LoginComponent,
     ProductDetailsComponent,
     RegistrationComponent,
-    CarrelloComponent
+    CarrelloComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,19 +43,20 @@ import { CarrelloComponent } from './carrello/carrello.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule;
-  const MATERIAL_MODULES = [
-    MdIconModule,
-    MdInputModule,
-    MdContentModule
+    MatIconModule,
   ],
-
   providers: [
     ProductService,
     LoginService,
     SharedService,
+    AuthGuardService,
     InterceptorService,
-    AuthGuardService
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })
