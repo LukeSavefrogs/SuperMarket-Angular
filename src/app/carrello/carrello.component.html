@@ -1,7 +1,6 @@
 <!--<button mat-button routerLink="/lista"><img src="../../assets/Icons/ic_home_black_48dp_2x.png" height="96" width="96" class="icons"/>-->
 <!--</button>-->
-
-<h1  *ngIf="listProduct.length==0" class="noProduct">
+<h1 *ngIf="listProduct.length==0" class="noProduct">
   Nessun prodotto nel carrello <br> <br>
   Torna alla lista dei prodotti
 
@@ -12,13 +11,26 @@
     <img matListAvatar src={{prod.img}} class="preview">
     <h3 matLine><strong>{{prod.nome}} </strong></h3>
     <p matLine>
-      <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
       <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
     </p>
-    <button mat-button (click)="reduce(prod)"><img src="../../assets/Icons/ic_delete_black_24dp_2x.png" class="icons">
-      <span matTooltip="Elimina uno"></span>
+
+    <button mat-button (click)="reduce(prod)" matTooltip="Elimina uno" [matTooltipPosition]="position">
+      <img src="../../assets/Icons/ic_delete_black_24dp_2x.png" class="icons">
     </button>
-    <button mat-button (click)="delete(prod)"><img src="../../assets/Icons/ic_delete_forever_black_48dp_2x.png" class="icons"></button>
+
+    <button mat-button (click)="delete(prod)" matTooltip="Elimina tutti" [matTooltipPosition]="position">
+      <img src="../../assets/Icons/ic_delete_forever_black_48dp_2x.png" class="icons">
+    </button>
+
     <hr>
   </mat-list-item>
 </mat-list>
+
+<div *ngIf="listProduct.length != 0">
+  <hr>
+
+  <h3>
+    <strong>Totale: &euro; {{totale}}</strong>
+  </h3>
+</div>

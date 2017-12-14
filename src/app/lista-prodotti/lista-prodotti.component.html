@@ -18,14 +18,14 @@
     <img matListAvatar src={{prod.img}}>
     <h3 matLine><strong>{{prod.nome}} </strong></h3>
     <p matLine>
-      <span class="info"> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
+      <span class="info"> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
       <span class="info"> Categoria: {{prod.categoria}} </span>
     </p>
     <hr>
   </mat-list-item>
 </mat-list>
 
-<mat-grid-list cols="5" rowHeight="1:1" gutterSize="50" *ngIf="lista===false">
+<mat-grid-list cols="5" rowHeight="1:1" gutterSize="20" *ngIf="lista===false" >
   <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
     <img class="preview" src={{prod.img}}>
 
@@ -35,8 +35,7 @@
 
     <mat-grid-tile-footer>
       <p>
-        <span> Prezzo: &euro; {{prod.prezzoIvato}} </span> <br>
-        <span> Categoria: {{prod.categoria}} </span>
+        <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
       </p>
     </mat-grid-tile-footer>
 
