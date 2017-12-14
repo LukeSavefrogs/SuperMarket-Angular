@@ -20,6 +20,7 @@ import {ProductDetailsComponent} from "./product-details/product-details.compone
 import {FormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
 import { CarrelloComponent } from './carrello/carrello.component';
+import { CreditCardComponent } from './credit-card/credit-card.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CarrelloComponent } from './carrello/carrello.component';
     LoginComponent,
     ProductDetailsComponent,
     RegistrationComponent,
-    CarrelloComponent
+    CarrelloComponent,
+    CreditCardComponent
   ],
   imports: [
     BrowserModule,

@@ -30,13 +30,14 @@
   <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
     <img class="preview" src={{prod.img}}>
 
-    <mat-grid-tile-header>
-      {{prod.nome}}
-    </mat-grid-tile-header>
+    <!--<mat-grid-tile-header>-->
+      <!---->
+    <!--</mat-grid-tile-header>-->
 
     <mat-grid-tile-footer>
       <p>
-        <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+        <span>{{prod.nome}}</span> <br>
+        <span > Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
       </p>
     </mat-grid-tile-footer>
 
