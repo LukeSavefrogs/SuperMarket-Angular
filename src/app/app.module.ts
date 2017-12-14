@@ -1,17 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 import {ProductService} from "./service/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {
-  MatButtonModule,
+import {MatButtonModule,
   MatDialogModule, MatGridListModule, MatIcon, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
-  MatToolbarModule
-} from "@angular/material";
+  MatToolbarModule} from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login/login.component";
 import {LoginService} from "./service/login.service";
@@ -46,8 +42,13 @@ import { CarrelloComponent } from './carrello/carrello.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule;
+  const MATERIAL_MODULES = [
+    MdIconModule,
+    MdInputModule,
+    MdContentModule
   ],
+
   providers: [
     ProductService,
     LoginService,

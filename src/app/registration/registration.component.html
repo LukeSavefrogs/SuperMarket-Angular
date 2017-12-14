@@ -1,15 +1,38 @@
-<form action="#" method="post" (submit)="registration()">
-  <h2>Pagina di Registrazione</h2>
-  <p>
-    <label for="username" class="floatLabel">Email
-      <input id="username" name="username" type="text" [(ngModel)]="user.username">
-    </label>
-  </p>
-  <p>
-    <label for="password" class="floatLabel">Password
-      <input id="password" name="password" type="password" [(ngModel)]="user.password"></label>
-  </p>
-  <p>
-    <input type="submit" value="SALVA" id="submit">
-  </p>
+<div ng-controller="DemoCtrl" layout="column" layout-padding ng-cloak>
+  <form (submit)="registration()" #f="ngForm">
+  <br/>
+  <md-content class="md-no-momentum">
+
+    <md-input-container class="md-icon-float md-block">
+    <label><b>Username</b></label>
+    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+    <input class="form-control" type="email" placeholder="Inserisci Email" name="username" [(ngModel)]="user.username" pattern="[a-z\d]+([\.\_]?[a-z\d]+)+@[a-z\d]+(\.[a-z]+)" required autofocus>
+    </md-input-container>
+
+    <label><b>Password</b></label>
+    <input class="form-control" type="password" placeholder="Inserisci Password" name="psw" [(ngModel)]="user.password"  required>
+
+    <label><b>Telefono</b></label>
+    <input class="form-control" placeholder="Inserisci Telefono" name="tel" [(ngModel)]="user.telefono" pattern="[0-9]*" required>
+
+    <label><b>Provincia</b></label>
+    <input class="form-control" type="text" placeholder="Inserisci Provincia" name="pv" [(ngModel)]="user.provincia" pattern="[a-z A-Z]*" required>
+
+    <label><b>Città</b></label>
+    <input class="form-control" type="text" placeholder="Inserisci Città" name="citta" [(ngModel)]="user.citta" pattern="[a-z A-Z]*" required>
+
+    <label><b>CAP</b></label>
+    <input class="form-control" type="text" placeholder="Inserisci CAP" name="cap" [(ngModel)]="user.cap" pattern="[a-z A-Z]*" required>
+
+    <label><b>Indirizzo</b></label>
+    <input class="form-control" type="text" placeholder="Inserisci Indirizzo" name="via" [(ngModel)]="user.via" required>
+
+
+  <div class="container" style="background-color:#f1f1f1">
+    <br>
+    <button type="submit" class="btn btn-success"  [disabled]="!f.form.valid"> Registrati </button>
+  </div>
+
+  </md-content>
 </form>
+</div>
