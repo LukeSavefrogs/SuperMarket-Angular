@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 import {ProductService} from "./service/product.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
@@ -52,7 +52,12 @@ import { CarrelloComponent } from './carrello/carrello.component';
     LoginService,
     SharedService,
     InterceptorService,
-    AuthGuardService
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })
