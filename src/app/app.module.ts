@@ -10,7 +10,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
   MatDialogModule, MatGridListModule, MatIcon, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login/login.component";
@@ -46,7 +46,8 @@ import { CarrelloComponent } from './carrello/carrello.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
     ProductService,

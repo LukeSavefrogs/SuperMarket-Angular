@@ -18,11 +18,18 @@ export class ListaProdottiComponent implements OnInit {
   selected: Product = new Product();
   lista: boolean = false;
   constructor(private service: ProductService, public dialog: MatDialog) {
+    this.generaOfferte()
   }
 
   ngOnInit() {
     this.getList();
     this.getDisponibili();
+  }
+
+  generaOfferte(){
+    this.service.generaOfferte().subscribe(data =>
+      console.log(data), e => console.log(e)
+    )
   }
 
   getList(){

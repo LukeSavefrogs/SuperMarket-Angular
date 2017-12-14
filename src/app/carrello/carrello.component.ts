@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../model/Product";
 import {ProductService} from "../service/product.service";
 
@@ -8,7 +8,8 @@ import {ProductService} from "../service/product.service";
   styleUrls: ['./carrello.component.css']
 })
 export class CarrelloComponent implements OnInit {
-  listProduct: Array<Product>= new Array();
+  listProduct: Array<Product> = new Array();
+
   constructor(private productServices: ProductService) {
 
   }
@@ -17,32 +18,41 @@ export class CarrelloComponent implements OnInit {
     this.getCarrello()
   }
 
-  getUserListProduct(){
+  getUserListProduct() {
     this.productServices.getUserListProduct().subscribe(data => {
       this.listProduct = data;
       console.log(this.listProduct);
-    }, err=>{
+    }, err => {
       console.log(err);
     })
   }
 
-  getCarrello(){
-    this.listProduct=JSON.parse(localStorage.getItem("carrello"))
+  getCarrello() {
+    this.listProduct = JSON.parse(localStorage.getItem("carrello"))
     console.log("CARRELLO - Carrello:", this.listProduct) //FUNZIONA
   }
 
-  delete(product){
+  delete(product) {
     console.log(product)
     this.productServices.deleteCarrello(product).subscribe(data => {
       this.getCarrello()
       console.log(data);
-    }, err=>{
+    }, err => {
       console.log(err);
     })
   }
 
-  reduce(product){
+  reduce(product) {
     console.log(product)
+    if (product.quantitaDaAcquistare > 1)
+      this.productServices.deleteOne(product).subscribe(
+        data => {
+          this.getCarrello();
+          console.log("Nuovo prodotto: ", product)
+        }, err => {
+          console.log(err);
+        }
+      )
   }
 
 }
