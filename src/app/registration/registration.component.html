@@ -17,7 +17,7 @@
   <div class="container">
     <div class="row main">
       <div class="main-login main-center">
-        <h5>REGISTRAZIONE</h5>
+        <h5>PAGINA DI REGISTRAZIONE</h5>
         <form (submit)="registration()" #f="ngForm">
 
   <div class="form-group">
@@ -44,7 +44,7 @@
   <label class="cols-sm-2 control-label">Telefono</label>
    <div class="cols-sm-10">
    <div class="input-group">
-   <span class="input-group-addon"><i class="glyphicons glyphicons-phone-alt" aria-hidden="true"></i></span>
+   <span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
     <input class="form-control" placeholder="Inserisci Telefono" name="tel" [(ngModel)]="user.telefono" pattern="[0-9]*" required>
    </div>
    </div>
@@ -54,7 +54,7 @@
    <label class="cols-sm-2 control-label">Provincia</label>
    <div class="cols-sm-10">
    <div class="input-group">
-   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+   <span class="input-group-addon"><i class="	glyphicon glyphicon-globe" aria-hidden="true"></i></span>
    <input class="form-control" type="text" placeholder="Inserisci Provincia" name="pv" [(ngModel)]="user.provincia" pattern="[a-z A-Z]*" required>
    </div>
    </div>
@@ -65,7 +65,7 @@
    <label class="cols-sm-2 control-label">Città</label>
    <div class="cols-sm-10">
    <div class="input-group">
-   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+   <span class="input-group-addon"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i></span>
     <input class="form-control" type="text" placeholder="Inserisci Città" name="citta" [(ngModel)]="user.citta" pattern="[a-z A-Z]*" required>
    </div>
    </div>
@@ -75,24 +75,24 @@
     <label class="cols-sm-2 control-label">CAP</label>
     <div class="cols-sm-10">
     <div class="input-group">
-    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-    <input class="form-control" type="text" placeholder="Inserisci CAP" name="cap" [(ngModel)]="user.cap" pattern="[a-z A-Z]*" required>
+    <span class="input-group-addon"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i></span>
+    <input class="form-control" type="text" placeholder="Inserisci CAP" name="cap" [(ngModel)]="user.cap" pattern="[0-9]*" required>
      </div>
      </div>
      </div>
 
      <div class="form-group">
-     <label class="cols-sm-2 control-label">Indirizzo</label>
+     <label class="fa fa-address-card">Indirizzo</label>
      <div class="cols-sm-10">
       <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
     <input class="form-control" type="text" placeholder="Inserisci Indirizzo" name="via" [(ngModel)]="user.via" required>
      </div>
      </div>
      </div>
 
-          <div class="form-group ">
-            <button target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button" [disabled]="!f.form.valid">Registrati</button>
+          <div class="form-group "> <br>
+            <button type="submit" class="btn btn-success"  [disabled]="!f.form.valid"> Registrati </button>
           </div>
         </form>
       </div>
