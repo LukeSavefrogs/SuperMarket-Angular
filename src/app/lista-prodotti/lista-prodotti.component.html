@@ -25,7 +25,8 @@
   </mat-list-item>
 </mat-list>
 
-<mat-grid-list cols="5" rowHeight="1:1" gutterSize="20" *ngIf="lista===false" >
+
+<mat-grid-list cols="5" rowHeight="1:1" gutterSize="5" *ngIf="lista===false" >
   <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
     <img class="preview" src={{prod.img}}>
 
