@@ -1,37 +1,47 @@
 #playground-container {
-  height: 500px;
+  height: 400px;
   overflow: hidden !important;
   -webkit-overflow-scrolling: touch;
+
 }
+
 body, html{
   height: 100%;
   background-repeat: no-repeat;
   background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
   font-family: 'Oxygen', sans-serif;
   background-size: cover;
+
 }
 
 .main{
   margin:50px 15px;
 }
 
+h5 {
+  font-size: 20px;
+  text-align: center;
+  color: blue;
+}
 h1.title {
   font-size: 50px;
   font-family: 'Passion One', cursive;
   font-weight: 400;
+
 }
 
 hr{
   width: 10%;
-  color: #fff;
 }
 
 .form-group{
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 label{
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  color: #666666;
+  font-size: 13px;
 }
 
 input,
@@ -54,6 +64,7 @@ input::-webkit-input-placeholder {
 .form-control {
   height: auto!important;
   padding: 8px 12px !important;
+
 }
 .input-group {
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
@@ -81,14 +92,16 @@ input::-webkit-input-placeholder {
   background: -ms-linear-gradient(to bottom, #f5f5f5 0%, #eeeeee 100%);
   background: linear-gradient(to bottom, #f5f5f5 0%, #eeeeee 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+
 }
 .main-center{
+
   margin-top: 30px;
   margin: 0 auto;
   max-width: 400px;
   padding: 10px 40px;
-  background:#009edf;
-  color: #FFF;
+  background:aliceblue;
+  color: black;
   text-shadow: none;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
@@ -98,6 +111,7 @@ input::-webkit-input-placeholder {
 span.input-group-addon i {
   color: #009edf;
   font-size: 17px;
+
 }
 
 .login-button{
@@ -108,4 +122,8 @@ span.input-group-addon i {
   font-size: 11px;
   text-align: center;
 }
+body {
+  background: url("https://www.choice.com.au/~/media/9abe2a7b08f04a65ab3c97d6e3b90e70.ashx?jq=80&w=994&h=559") no-repeat;
 
+  background-size: cover;
+}
