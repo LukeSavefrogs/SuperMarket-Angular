@@ -7,3 +7,9 @@
   top: 0;
   width: 100%;
 }
+
+.icon{
+  height: 16px;
+  width: auto;
+  bottom: 4px;
+}

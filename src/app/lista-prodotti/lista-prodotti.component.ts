@@ -17,6 +17,7 @@ export class ListaProdottiComponent implements OnInit {
   listaDisponibili: Product[] = new Array<Product>();
   selected: Product = new Product();
   lista: boolean = true;
+
   constructor(private service: ProductService, public dialog: MatDialog) {
     this.generaOfferte()
   }

@@ -27,6 +27,7 @@ export class CarrelloComponent implements OnInit {
   delete(product) {
     console.log(product)
     this.productServices.deleteCarrello(product).subscribe(data => {
+
       this.getCarrello()
       console.log(data);
     }, err => {
@@ -47,7 +48,7 @@ export class CarrelloComponent implements OnInit {
 
   getTotale(){
     this.totale = 0
-    for(let prodotto of this.listProduct) this.totale += prodotto.prezzoScontato
+    for(let prodotto of this.listProduct) this.totale += (prodotto.prezzoScontato * prodotto.quantitaDaAcquistare)
   }
 
   playAudio(){

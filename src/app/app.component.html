@@ -1,17 +1,28 @@
 <mat-toolbar color="primary">
-  <span>SUPERMARKET</span><div _ngcontent-c1="" class="flex-spacer"></div>
+  <span routerLink="/lista">SUPERMARKET</span><div _ngcontent-c1="" class="flex-spacer"></div>
 
 
-  <button mat-button  [matMenuTriggerFor]="menu">Menu</button>
+  <button mat-button  [matMenuTriggerFor]="menu"><mat-icon><i class="material-icons">menu</i></mat-icon>Menu</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/lista">Home</button>
+    <button mat-menu-item routerLink="/lista"><mat-icon><i class="material-icons">home</i></mat-icon>Home</button>
 
 
-    <button mat-menu-item routerLink="/carrello" *ngIf="logged">Carrello</button>
+    <button mat-menu-item routerLink="/carrello" *ngIf="logged">
+      <mat-icon><i class="material-icons">shopping_cart</i></mat-icon>Carrello
+    </button>
     <hr>
-    <button mat-menu-item routerLink="/login" *ngIf="!logged">Login</button>
-    <button mat-menu-item routerLink="/register" *ngIf="!logged">Registrati</button>
-    <button mat-menu-item (click)="logout()" *ngIf="logged" >Logout</button>
+    <button mat-menu-item routerLink="/login" *ngIf="!logged">
+      <mat-icon><i class="material-icons">person</i></mat-icon>Login
+    </button>
+
+    <button mat-menu-item routerLink="/register" *ngIf="!logged">
+      <mat-icon><i class="material-icons">person_add</i></mat-icon>Registrati
+    </button>
+
+    <button mat-menu-item (click)="logout()" *ngIf="logged">
+      <mat-icon><i class="material-icons">exit_to_app</i></mat-icon>Logout
+    </button>
+    
   </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>

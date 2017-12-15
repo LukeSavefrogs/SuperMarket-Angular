@@ -3,8 +3,9 @@
   <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
           [disabled]="data.prodotto.quantitaDisponibile<=0">
     <mat-icon>add_shopping_cart</mat-icon>
-    Aggiungi al carrello
+    Aggiungi al carrello <span *ngIf="data.prodotto.comprato">({{data.prodotto.quantitaDaAcquistare}})</span>
   </button>
+
   <div class="contenitore">
     <img src={{data.prodotto.img}} class="image">
   </div>
