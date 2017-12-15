@@ -17,4 +17,5 @@ export class Product {
   prezzoScontato: number
   img: string;
   offerta: number;
+  comprato: boolean = false;
 }

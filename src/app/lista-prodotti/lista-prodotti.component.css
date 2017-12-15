@@ -1,8 +1,9 @@
 .info{
   color: rgba(0, 0, 0, 0.43);
-  padding-right: 50px;
-  text-align: right;
+  padding-right: 100px;
+  float: right;
   display: inline-block;
+  vertical-align: middle;
   font-weight: bold;
 }
 
@@ -30,10 +31,24 @@
 }
 
 .icons{
-  text-align: right;
+  padding-right: 120px;
+  display: inline-block;
+  float: right;
 }
 
 .titolo{
   text-shadow: rgba(0, 0, 0, 0.73);
-  font-family: Calibri;
+  padding-left: 170px;
+}
+
+h1{
+  display: inline-block;
+}
+
+.leftBorder{
+  padding-left: 100px;
+}
+
+hr {
+  background-color: #000000;
 }
