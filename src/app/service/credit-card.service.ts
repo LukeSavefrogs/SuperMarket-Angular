@@ -6,5 +6,5 @@ export class CreditCardService {
 
   constructor(http: HttpClient) { }
 
-
+  getCardUser(){}
 }
