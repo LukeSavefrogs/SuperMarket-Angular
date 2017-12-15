@@ -1,7 +1,7 @@
 export class CreditCard {
   id: number;
   numero: string;
-  scadenza: Date;
+  scadenza: string;
   ccv: string;
   credito: number;
 }

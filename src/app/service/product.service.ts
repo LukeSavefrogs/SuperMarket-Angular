@@ -22,10 +22,6 @@ export class ProductService {
     return this.http.get<Product[]>(BACKEND_URL + "/product/getListProductDisponibile");
   }
 
-  getUserListProduct(): Observable<Array<Product>> {
-    return this.http.get<Array<Product>>(BACKEND_URL + "/product/prodottiacquistati");
-  }
-
   generaOfferte(): Observable<string> {
     console.log("Offerte Generate")
     return this.http.get<string>(BACKEND_URL + "/product/generaOfferte")
