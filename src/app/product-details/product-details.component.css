@@ -1,17 +1,29 @@
-.image{
-  width: auto;
-  height: 300px;
-  float: left;
-  padding: 0px 20px 20px 0px;       /*top   right   bottom    left*/
-  margin: auto;
+.contenitore{
+  width: 300px;
 }
 
-.sconto{
+.image {
+  width: 300px;
+  max-width: 300px;
+  height: auto;
+  /*max-height: 300px;*/
+  float: left;
+  border-radius: 15px;
+  margin: 0 10px 20px 0;
+  /*padding: 0 20px 20px 0;       !*top   right   bottom    left*!*/
+
+}
+
+.sconto {
   color: red;
   font-style: italic;
 }
 
-.buttons{
+.buttons {
   position: relative;
   float: right;
+}
+
+.dettagli {
+  margin-left: 310px;
 }

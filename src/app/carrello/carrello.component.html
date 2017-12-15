@@ -5,32 +5,34 @@
   <a routerLink="/lista"> Torna alla lista dei prodotti </a>
 
 </h1>
+<div class="allineamento">
+  <mat-list>
+    <mat-list-item *ngFor="let prod of listProduct">
+      <img matListAvatar src={{prod.img}} class="preview">
+      <h3 matLine><strong>{{prod.nome}} </strong></h3>
+      <p matLine>
+        <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+        <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
+      </p>
 
-<mat-list>
-  <mat-list-item *ngFor="let prod of listProduct">
-    <img matListAvatar src={{prod.img}} class="preview">
-    <h3 matLine><strong>{{prod.nome}} </strong></h3>
-    <p matLine>
-      <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
-      <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
-    </p>
+      <button mat-button (click)="reduce(prod)" matTooltip="Elimina uno" [matTooltipPosition]="position">
+        <img src="../../assets/Icons/ic_delete_black_24dp_2x.png" class="icons">
+      </button>
 
-    <button mat-button (click)="reduce(prod)" matTooltip="Elimina uno" [matTooltipPosition]="position">
-      <img src="../../assets/Icons/ic_delete_black_24dp_2x.png" class="icons">
-    </button>
+      <button mat-button (click)="delete(prod)" matTooltip="Elimina tutti" [matTooltipPosition]="position">
+        <img src="../../assets/Icons/ic_delete_forever_black_48dp_2x.png" class="icons">
+      </button>
 
-    <button mat-button (click)="delete(prod)" matTooltip="Elimina tutti" [matTooltipPosition]="position">
-      <img src="../../assets/Icons/ic_delete_forever_black_48dp_2x.png" class="icons">
-    </button>
+      <hr>
+    </mat-list-item>
+  </mat-list>
 
+  <div *ngIf="listProduct.length != 0">
     <hr>
-  </mat-list-item>
-</mat-list>
 
-<div *ngIf="listProduct.length != 0">
-  <hr>
-
-  <h3>
-    <strong>Totale: &euro; {{totale}}</strong>
-  </h3>
+    <h3>
+      <strong>Totale: &euro; {{totale}}</strong>
+    </h3>
+    <button mat-raised-button color="primary" (click)="compra(listProduct)"> Vai al Check-Out</button>
+  </div>
 </div>

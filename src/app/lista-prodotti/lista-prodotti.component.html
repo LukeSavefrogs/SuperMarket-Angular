@@ -1,48 +1,51 @@
-<h1 class="titolo">
-  Lista Prodotti
-</h1>
+<div>
+  <h1 class="titolo">
+    Lista Prodotti
+  </h1>
 
-<hr>
-<section class="icons">
-  <button mat-icon-button (click)="setListaMod(true)">
-    <mat-icon>list</mat-icon>
-  </button>
-  <button mat-icon-button (click)="setListaMod(false)">
-    <mat-icon>view_comfy</mat-icon>
-  </button>
-</section>
-<hr>
+  <div class="icons">
+    <button mat-icon-button (click)="setListaMod(true)">
+      <mat-icon>list</mat-icon>
+    </button>
+    <button mat-icon-button (click)="setListaMod(false)">
+      <mat-icon>view_comfy</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
 
-<mat-list *ngIf="lista===true">
-  <mat-list-item *ngFor="let prod of listaDisponibili" class="" (click)="openProduct(prod)">
-    <img matListAvatar src={{prod.img}}>
-    <h3 matLine><strong>{{prod.nome}} </strong></h3>
-    <p matLine>
-      <span class="info"> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
-      <span class="info"> Categoria: {{prod.categoria}} </span>
-    </p>
-    <hr>
-  </mat-list-item>
-</mat-list>
+  <hr>
 
-
-<mat-grid-list cols="5" rowHeight="1:1" gutterSize="5" *ngIf="lista===false" >
-  <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
-    <img class="preview" src={{prod.img}}>
-
-    <!--<mat-grid-tile-header>-->
-      <!---->
-    <!--</mat-grid-tile-header>-->
-
-    <mat-grid-tile-footer>
-      <p>
-        <span>{{prod.nome}}</span> <br>
-        <span > Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+  <mat-list *ngIf="lista===true">
+    <mat-list-item *ngFor="let prod of listaProdotti" class="" (click)="openProduct(prod)">
+      <img matListAvatar src={{prod.img}}>
+      <h3 matLine><strong>{{prod.nome}} </strong></h3>
+      <p matLine>
+        <span class="info"> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+        <span class="info"> Categoria: {{prod.categoria}} </span>
       </p>
-    </mat-grid-tile-footer>
+      <hr>
+    </mat-list-item>
+  </mat-list>
 
-  </mat-grid-tile>
-</mat-grid-list>
 
+  <mat-grid-list cols="5" rowHeight="1:1" gutterSize="5" *ngIf="lista===false">
+    <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
+      <img class="preview" src={{prod.img}}>
 
+      <!--<mat-grid-tile-header>-->
+      <!---->
+      <!--</mat-grid-tile-header>-->
+
+      <mat-grid-tile-footer>
+        <p>
+          <span>{{prod.nome}}</span> <br>
+          <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+        </p>
+      </mat-grid-tile-footer>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
 <!--<app-product-details [selected]="selected"></app-product-details>-->

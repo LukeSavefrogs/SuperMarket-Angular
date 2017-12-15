@@ -5,31 +5,35 @@
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi al carrello
   </button>
+  <div class="contenitore">
+    <img src={{data.prodotto.img}} class="image">
+  </div>
 
-  <img src={{data.prodotto.img}} class="image">
-  <h2> {{data.prodotto.nome}} </h2>
-  <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
-  <br>
-
-  <div *ngIf="data.prodotto.offerta == 0"> Prezzo: {{data.prodotto.prezzoIvato}} &euro;</div>
-
-  <h4 *ngIf="data.prodotto.offerta != 0">
-    <del>Prezzo consigliato: {{data.prodotto.prezzoIvato}} &euro;</del>
-    <span class="sconto"> SCONTO: -{{data.prodotto.offerta}} %</span>
+  <div class="dettagli">
+    <h2> {{data.prodotto.nome}} </h2>
+    <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
     <br>
-    Prezzo: &euro; {{data.prodotto.prezzoScontato}}
-  </h4>
-  <hr>
-  <div>
-    <h3>Dettagli prodotto: </h3>
-    <h5>
-      <strong>Marca:  </strong> {{data.prodotto.marca}}
-      <br><br>
-      <strong>Data di Scadenza:  </strong> {{data.prodotto.dataScadenza}}
-      <br><br>
-      <strong>Categoria:  </strong> {{data.prodotto.categoria}}
-      <br><br>
-      <strong>Prezzo senza IVA: </strong> {{data.prodotto.prezzoSenzaIva}}
-    </h5>
+
+    <div *ngIf="data.prodotto.offerta == 0"><strong> Prezzo:</strong> {{data.prodotto.prezzoIvato}} &euro;</div>
+
+    <h4 *ngIf="data.prodotto.offerta != 0">
+      <del>Prezzo consigliato: {{data.prodotto.prezzoIvato}} &euro;</del>
+      <span class="sconto"> SCONTO: -{{data.prodotto.offerta}} %</span>
+      <br>
+      Prezzo: &euro; {{data.prodotto.prezzoScontato}}
+    </h4>
+    <hr>
+    <div>
+      <h3>Dettagli prodotto: </h3>
+      <h5>
+        <strong>Marca: </strong> {{data.prodotto.marca}}
+        <br><br>
+        <strong>Data di Scadenza: </strong> {{data.prodotto.dataScadenza}}
+        <br><br>
+        <strong>Categoria: </strong> {{data.prodotto.categoria}}
+        <br><br>
+        <strong>Prezzo senza IVA: </strong> {{data.prodotto.prezzoSenzaIva}}
+      </h5>
+    </div>
   </div>
 </div>
