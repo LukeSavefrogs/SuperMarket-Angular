@@ -6,6 +6,7 @@ import {ProductDetailsComponent} from "./product-details/product-details.compone
 import {RegistrationComponent} from "./registration/registration.component";
 import {CarrelloComponent} from "./carrello/carrello.component";
 import {CreditCardComponent} from "./credit-card/credit-card.component";
+import {SceltaCartaComponent} from "./scelta-carta/scelta-carta.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'detail/:id', component: ProductDetailsComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'carrello', component: CarrelloComponent},
-  {path: 'creditCard', component: CreditCardComponent}
+  {path: 'creditCard', component: CreditCardComponent},
+  {path: 'sceltaCarta', component: SceltaCartaComponent}
 ]
 @NgModule({
   imports: [

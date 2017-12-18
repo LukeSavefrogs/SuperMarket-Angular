@@ -22,6 +22,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { CarrelloComponent } from './carrello/carrello.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import {CreditCardService} from "./service/credit-card.service";
+import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
+
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {CreditCardService} from "./service/credit-card.service";
     ProductDetailsComponent,
     RegistrationComponent,
     CarrelloComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    SceltaCartaComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../model/Product";
 import {ProductService} from "../service/product.service";
-import {TooltipPosition} from "@angular/material";
+import {MatDialog, TooltipPosition} from "@angular/material";
+import {CreditCard} from "../model/CreditCard";
 
 @Component({
   selector: 'app-carrello',
@@ -12,7 +13,10 @@ export class CarrelloComponent implements OnInit {
   listProduct: Array<Product> = new Array();
   totale: number = 0;
   position: string = 'below';
-  constructor(private productServices: ProductService) {}
+  selected: CreditCard = new CreditCard();
+
+  constructor(private productServices: ProductService, public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.getCarrello()
@@ -37,21 +41,21 @@ export class CarrelloComponent implements OnInit {
 
   reduce(product) {
     console.log(product)
-      this.productServices.deleteOne(product).subscribe(
-        data => {
-          this.getCarrello();
-          console.log("Nuovo prodotto: ", product)
-        }, err => {
-          console.log(err);
-        })
+    this.productServices.deleteOne(product).subscribe(
+      data => {
+        this.getCarrello();
+        console.log("Nuovo prodotto: ", product)
+      }, err => {
+        console.log(err);
+      })
   }
 
-  getTotale(){
+  getTotale() {
     this.totale = 0
-    for(let prodotto of this.listProduct) this.totale += (prodotto.prezzoScontato * prodotto.quantitaDaAcquistare)
+    for (let prodotto of this.listProduct) this.totale += (prodotto.prezzoScontato * prodotto.quantitaDaAcquistare)
   }
 
-  playAudio(){
+  playAudio() {
     let audio = new Audio();
     audio.src = "../../assets/Sounds/WINDOWS_XP_ERROR_SOUND.mp3";
     audio.load();
