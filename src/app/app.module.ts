@@ -21,6 +21,7 @@ import {FormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
 import { CarrelloComponent } from './carrello/carrello.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
+import {CreditCardService} from "./service/credit-card.service";
 
 
 @NgModule({
@@ -53,9 +54,10 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
   providers: [
     ProductService,
     LoginService,
+    CreditCardService,
     SharedService,
-    InterceptorService,
     AuthGuardService,
+    InterceptorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

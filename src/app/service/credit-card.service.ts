@@ -1,10 +1,28 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+
+import {CreditCard} from "../model/CreditCard";
+import {Observable} from "rxjs/Observable";
+import {BACKEND_URL} from "../utils";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'})
+};
 
 @Injectable()
 export class CreditCardService {
 
-  constructor(http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getCardUser(){}
+  getListCardUser(): Observable<Array<CreditCard>>{
+    return this.http.get<Array<CreditCard>>(BACKEND_URL + "/creditCard/getCardUser");
+  }
+  addCard(creditCard): Observable<CreditCard>  {
+    return this.http.post<CreditCard>(BACKEND_URL + "/creditCard/addCartaCredito", httpOptions);
+  }
+  deleteCreditCard(creditCard): Observable<CreditCard> {
+    return this.http.delete<CreditCard>(BACKEND_URL + "/creditcard/deletecard/" + creditCard.id);
+  }
 }
+

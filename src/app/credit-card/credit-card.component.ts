@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CreditCard} from "../model/CreditCard";
+import {CreditCardService} from "../service/credit-card.service";
 
 @Component({
   selector: 'app-credit-card',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditCardComponent implements OnInit {
 
-  constructor() { }
+  listaCard: CreditCard[] = new Array<CreditCard>();
+  selected: CreditCard = new CreditCard();
+
+  constructor(private service: CreditCardService) { }
 
   ngOnInit() {
   }
+  getListCardUser(){
+    this.service.getListCardUser().subscribe(data => {
+      this.listaCard = data;
+      console.log("Carte: ", data);
+    }, err =>{
+      console.log(err);
+    })
+  }
+    addCard() {
+      this.service.addCard(this.addCard()).subscribe(data => {
+        console.log(data);
+      }, err => {
+        console.log(err);
+      })
+    }
+    deleteCard(creditCard){
+      console.log(creditCard)
+      this.service.deleteCreditCard(creditCard).subscribe(data => {
+        this.getListCardUser()
+        console.log(data);
+      }, err => {
+        console.log(err);
+      })
+    }
+    }
 
-}
+
+
