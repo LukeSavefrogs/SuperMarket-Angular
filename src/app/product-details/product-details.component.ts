@@ -28,14 +28,16 @@ export class ProductDetailsComponent implements OnInit {
     this.getCarrello(this.data.prodotto)
     console.log("Prodotto nel carrello: ", this.prodottoDaCarrello)
     this.compra = this.prodottoDaCarrello.quantitaDaAcquistare
-    console.log(this.compra)
+    console.log("Valore compra: ", this.compra)
     this.loggedUser = JSON.parse(localStorage.getItem('user'))
     //console.log("Preso:", this.data.prodotto.)
+    this.compra = 0
+    console.log("Valore compra: ", this.compra)
   }
 
   aggiungiProdotto(prod) {
-    if(this.compra == undefined) this.compra = 1
-    else this.compra++
+    // if (this.compra == undefined) this.compra = 1
+    // else this.compra++
     this.prodottoService.addProdotto(prod);
     this.getCarrello(prod);
     this.toggle = false
@@ -66,12 +68,13 @@ export class ProductDetailsComponent implements OnInit {
     }, e => console.log(e))
   }
 
-  aggiungiQuantita(quant, prodotto){
+  aggiungiQuantita(quant, prodotto) {
     console.log("Quantita: ", this.compra)
     console.log("Quantita già presente: ", this.prodottoDaCarrello.quantitaDaAcquistare)
     this.prodottoService.compraQuantita(quant, prodotto)
     this.getCarrello(prodotto);
     this.toggle = false
+    this.compra = 0
     console.log("Nuova quantita: ", this.prodottoDaCarrello.quantitaDaAcquistare)
   }
 }

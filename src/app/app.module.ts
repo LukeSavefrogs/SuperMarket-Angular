@@ -6,7 +6,7 @@ import {ProductService} from "./service/product.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MatButtonModule,
+  MatButtonModule, MatButtonToggleModule,
   MatDialogModule, MatGridListModule, MatIcon, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
