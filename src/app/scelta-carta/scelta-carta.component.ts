@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {CreditCardService} from "../service/credit-card.service";
 import {CreditCard} from "../model/CreditCard";
-import {MatDialog} from "@angular/material/dialog";
-import {MatDialog} from "@angular/material";
+
 import {CreditCardComponent} from "../credit-card/credit-card.component";
+import {MatDialog} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-scelta-carta',
@@ -19,6 +20,7 @@ export class SceltaCartaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getListCardUser();
   }
 
   getListCardUser() {
@@ -29,13 +31,15 @@ export class SceltaCartaComponent implements OnInit {
       console.log(err);
     })
   }
-  openDialog() {
-    const dialogRef=this.dialog.open(CreditCardComponent, {
+
+  openDialogCard() {
+    const dialogRef = this.dialog.open(CreditCardComponent, {
       height: '80%',
-      width: '100%'
+      width: '100%',
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('dialogResult',result);
-    })
+      console.log(`Dialog result: ${result}`);
+
+    });
   }
 }

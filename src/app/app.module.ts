@@ -7,7 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
-  MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatDialogModule, MatDialogRef, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
@@ -53,7 +53,7 @@ import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
     ],
 
   providers: [
