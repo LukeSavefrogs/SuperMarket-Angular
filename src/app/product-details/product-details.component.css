@@ -37,3 +37,21 @@
   float: right;
   background-color: rgba(0, 0, 0, 0.28);
 }
+
+.smallButton{
+  min-width: 36px !important;
+  position: relative;
+  float: right;
+  padding: 0 36px 0 36px !important;
+}
+
+.mat-button.mat-small {
+  min-width: 1px;
+}
+
+.button.smallButton.mat-button{
+  min-width: 36px !important;
+  position: relative;
+  float: right;
+  padding: 0 36px 0 36px !important;
+}

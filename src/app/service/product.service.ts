@@ -70,7 +70,7 @@ export class ProductService {
         //product.comprato = false
       }
     }
-    console.log("SERVICE PRODUCT - STO USCENDO...")
+    // console.log("SERVICE PRODUCT - STO USCENDO...")
     return of(product);
   }
 
@@ -78,7 +78,7 @@ export class ProductService {
   deleteOne(product): Observable<Product> {
     this.getCarrello()
     let differenza: number = 0;
-    console.log("SERVICE PRODUCT - deleteOne() partito")
+    // console.log("SERVICE PRODUCT - deleteOne() partito")
     if (product.quantitaDaAcquistare > 1) {
       for (let cell of this.listProdotti) {
         if (cell.id == product.id) {
@@ -99,16 +99,16 @@ export class ProductService {
 
   getOnefromCarrello(product): Observable<Product>{
     this.getCarrello();
-    console.log("carrello: ", this.listProdotti)
+    console.log("Carrello: ", this.listProdotti)
 
     let prodottoCercato: Product = new Product();
 
     for (let prod of this.listProdotti) {
-      console.log("FOR")
+      // console.log("FOR")
       if (prod.id == product.id) {
-        console.log(product)
+        // console.log(product)
         prodottoCercato = prod
-        console.log(prodottoCercato)
+        // console.log(prodottoCercato)
       }
     }
     return of(prodottoCercato)
@@ -118,4 +118,22 @@ export class ProductService {
     return parseFloat(num).toFixed(2);
   }
 
+  compraQuantita (quant: number, prodotto: Product){
+    this.getCarrello()
+    let somma: number = 1;                //SERVER RITORNA QUANTITADAACQUISTARE = 1 DI DEFAULT, SE SI FACESSE +1 AL PRIMO GIRO ANDREBBE A 2
+
+    for (let prod of this.listProdotti) {
+      if (prod.id == prodotto.id) {
+        //somma = somma + prod.quantitaDaAcquistare
+        prodotto.quantitaDaAcquistare += quant
+        this.listProdotti.splice(this.listProdotti.indexOf(prod), 1, prodotto)    //Cancello il prodotto dal carrello
+      }
+    }
+
+    //prodotto.quantitaDaAcquistare = somma + quant
+    //prodotto.comprato = true
+    //this.listProdotti.push(prodotto);                                               //Aggiungoil prodotto
+    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    console.log("Aggiunto: ", prodotto)       //FUNZIONA
+  }
 }
