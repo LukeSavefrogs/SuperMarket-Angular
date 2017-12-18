@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CreditCard} from "../model/CreditCard";
 import {CreditCardService} from "../service/credit-card.service";
+import {MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-credit-card',
@@ -12,7 +13,7 @@ export class CreditCardComponent implements OnInit {
   listaCard: CreditCard[] = new Array<CreditCard>();
   selected: CreditCard = new CreditCard();
 
-  constructor(private service: CreditCardService) { }
+  constructor(private service: CreditCardService, private dialogRef: MatDialogRef<CreditCardComponent>) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class CreditCardComponent implements OnInit {
     addCard() {
       this.service.addCard(this.addCard()).subscribe(data => {
         console.log(data);
+        this.closedDialog();
       }, err => {
         console.log(err);
       })
@@ -39,6 +41,9 @@ export class CreditCardComponent implements OnInit {
       }, err => {
         console.log(err);
       })
+    }
+    closedDialog() {
+      this.dialogRef.close();
     }
     }
 

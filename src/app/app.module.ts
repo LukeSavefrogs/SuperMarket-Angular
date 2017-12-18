@@ -7,7 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
-  MatDialogModule, MatGridListModule, MatIcon, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {AppRoutingModule} from "./app-routing.module";
@@ -23,6 +23,7 @@ import { CarrelloComponent } from './carrello/carrello.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import {CreditCardService} from "./service/credit-card.service";
 import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
+
 
 
 
