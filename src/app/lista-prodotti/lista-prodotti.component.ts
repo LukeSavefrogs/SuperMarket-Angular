@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../model/Product";
 import {ProductService} from "../service/product.service";
 import {Category} from "../model/Category";
-import {Unita} from "../model/Unita";
 import {MatDialog} from "@angular/material";
 import {ProductDetailsComponent} from "../product-details/product-details.component";
 
@@ -26,33 +25,31 @@ export class ListaProdottiComponent implements OnInit {
     this.getDisponibili();
   }
 
-  generaOfferte(){
+  generaOfferte() {
     this.service.generaOfferte().subscribe(data =>
       console.log(data), e => console.log(e)
     )
   }
 
-  getList(){
-    this.service.findAll().subscribe(data =>{
+  getList() {
+    this.service.findAll().subscribe(data => {
       this.listaProdotti = data;
       console.log("Prodotti: ", data);
     }, e => console.log(e))
   }
 
-  getDisponibili(){
-    this.service.findDisponibili().subscribe(data =>{
+  getDisponibili() {
+    this.service.findDisponibili().subscribe(data => {
       this.listaDisponibili = data;
       console.log("Prodotti: ", data);
     }, e => console.log(e))
   }
 
-  openProduct(prodotto){
-    this.selected = prodotto;
+  openProduct(prodotto) {
     const dialogRef = this.dialog.open(ProductDetailsComponent, {
-      data:{prodotto},
+      data: {prodotto},
       height: '80%',
       width: '100%',
-
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -60,7 +57,31 @@ export class ListaProdottiComponent implements OnInit {
     });
   }
 
-  setListaMod(param: boolean){
+  setListaMod(param: boolean) {
     this.lista = param;
+  }
+
+  getSelected(selezionato) {
+    console.log(selezionato)
+    let lista: Array<Product> = new Array();
+    let prodottoCercato: Product = new Product();
+
+    this.service.findAll().subscribe(data => {
+      console.log(data)
+        lista= data;
+
+      for (let prod of lista) {
+        console.log("FOR")
+        if (prod.id == selezionato.id) {
+          console.log(prod,selezionato)
+          prodottoCercato = prod
+          console.log(prodottoCercato)
+        }
+      }
+        this.openProduct(prodottoCercato);
+      }, e => {
+        console.log(e)
+      }
+    )
   }
 }

@@ -1,9 +1,19 @@
 <div>
   <hr>
   <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
-          [disabled]="data.prodotto.quantitaDisponibile<=0">
+          *ngIf="compra === undefined"
+          [disabled]="data.prodotto.quantitaDisponibile<=0 ||
+          data.prodotto.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
-    Aggiungi al carrello <span *ngIf="data.prodotto.comprato">({{data.prodotto.quantitaDaAcquistare}})</span>
+    Aggiungi al carrello
+  </button>
+
+  <button mat-raised-button color="accent" class="buttonClicked" (click)="aggiungiProdotto(prodottoDaCarrello)"
+          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1"
+          [disabled]="data.prodotto.quantitaDisponibile<=0 ||
+          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
+    <mat-icon>add_shopping_cart</mat-icon>
+    Aggiunto al carrello <span>({{prodottoDaCarrello.quantitaDaAcquistare}})</span>
   </button>
 
   <div class="contenitore">
@@ -12,16 +22,21 @@
 
   <div class="dettagli">
     <h2> {{data.prodotto.nome}} </h2>
+    <!--<span class="quantita">-->
+      <!--<button mat-button (click)="compra=compra-1"><mat-icon><i class="material-icons">remove</i></mat-icon></button>-->
+      <!--Quantità: {{prodottoDaCarrello.quantitaDaAcquistare}}-->
+      <!--<button mat-button (click)="compra = compra+1"><mat-icon><i class="material-icons">add</i></mat-icon></button>-->
+    <!--</span>-->
     <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
     <br>
 
-    <div *ngIf="data.prodotto.offerta == 0"><strong> Prezzo:</strong> {{data.prodotto.prezzoIvato}} &euro;</div>
+    <div *ngIf="data.prodotto.offerta == 0"><strong> Prezzo:</strong> {{data.prodotto.prezzoIvato | currency:'EUR'}} </div>
 
     <h4 *ngIf="data.prodotto.offerta != 0">
-      <del>Prezzo consigliato: {{data.prodotto.prezzoIvato}} &euro;</del>
+      <del>Prezzo consigliato: {{data.prodotto.prezzoIvato | currency:'EUR'}}</del>
       <span class="sconto"> SCONTO: -{{data.prodotto.offerta}} %</span>
       <br>
-      Prezzo: &euro; {{data.prodotto.prezzoScontato}}
+      Prezzo: {{data.prodotto.prezzoScontato | currency:'EUR'}}
     </h4>
     <hr>
     <div>
@@ -33,7 +48,7 @@
         <br><br>
         <strong>Categoria: </strong> {{data.prodotto.categoria}}
         <br><br>
-        <strong>Prezzo senza IVA: </strong> {{data.prodotto.prezzoSenzaIva}}
+        <strong>Prezzo senza IVA: </strong> {{data.prodotto.prezzoSenzaIva | currency:'EUR'}}
       </h5>
     </div>
   </div>
