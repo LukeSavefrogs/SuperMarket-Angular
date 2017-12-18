@@ -16,6 +16,7 @@ export class ListaProdottiComponent implements OnInit {
   listaDisponibili: Product[] = new Array<Product>();
   selected: Product = new Product();
   lista: boolean = true; //solo x grafica
+
   constructor(private service: ProductService, public dialog: MatDialog) {
     this.generaOfferte()
   }
@@ -27,7 +28,8 @@ export class ListaProdottiComponent implements OnInit {
 
   generaOfferte() {
     this.service.generaOfferte().subscribe(data =>
-      console.log(data), e => console.log(e)
+      console.log(data),
+        e => console.log(e)
     )
   }
 
@@ -41,7 +43,7 @@ export class ListaProdottiComponent implements OnInit {
   getDisponibili() {
     this.service.findDisponibili().subscribe(data => {
       this.listaDisponibili = data;
-      console.log("Prodotti: ", data);
+      // console.log("Prodotti: ", data);
     }, e => console.log(e))
   }
 
@@ -62,20 +64,20 @@ export class ListaProdottiComponent implements OnInit {
   }
 
   getSelected(selezionato) {
-    console.log(selezionato)
+    // console.log(selezionato)
     let lista: Array<Product> = new Array();
     let prodottoCercato: Product = new Product();
 
     this.service.findAll().subscribe(data => {
-      console.log(data)
+      // console.log(data)
         lista= data;
 
       for (let prod of lista) {
-        console.log("FOR")
+        // console.log("FOR")
         if (prod.id == selezionato.id) {
-          console.log(prod,selezionato)
+          // console.log(prod,selezionato)
           prodottoCercato = prod
-          console.log(prodottoCercato)
+          // console.log(prodottoCercato)
         }
       }
         this.openProduct(prodottoCercato);

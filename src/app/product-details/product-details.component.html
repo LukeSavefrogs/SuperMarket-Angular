@@ -1,32 +1,64 @@
 <div>
   <hr>
+  <!--PULSANTE PER REGISTRAZIONE SE NON LOGGATO-->
+  <button mat-raised-button color="warn" class="buttons" (click)="faiLoggare()"
+          *ngIf="!loggedUser">
+    <mat-icon>add_shopping_cart</mat-icon>
+    Accedi o Registrati
+  </button>
+
+  <!--PULSANTE PER AGGIUNTA DEL PRODOTTO AL CARRELLO PER LA PRIMA VOLTA-->
   <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
-          *ngIf="compra === undefined"
+          *ngIf="compra === undefined && loggedUser"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
           data.prodotto.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi al carrello
   </button>
 
-  <button mat-raised-button color="accent" class="buttonClicked" (click)="aggiungiProdotto(prodottoDaCarrello)"
-          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1"
+  <!--PULSANTE PER VISUALIZZARE LA QUANTITA' ACQUISTATA-->
+  <button mat-raised-button color="basic" class="buttons" (click)="aggiungiQuantita(compra, prodottoDaCarrello)"
+          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && compra == prodottoDaCarrello.quantitaDaAcquistare"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
           prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiunto al carrello <span>({{prodottoDaCarrello.quantitaDaAcquistare}})</span>
   </button>
 
+  <!--PULSANTE PER CONFERMARE L'AGGIUNTA DELLA QUANTITA' SCELTA-->
+  <button mat-raised-button color="basic" class="buttonClicked" (click)="aggiungiQuantita(compra, prodottoDaCarrello)"
+          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && toggle && compra != prodottoDaCarrello.quantitaDaAcquistare"
+          [disabled]="data.prodotto.quantitaDisponibile<=0 ||
+          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
+    <mat-icon>add_shopping_cart</mat-icon>
+    Aggiungi al carrello
+  </button>
+
+  <button mat-button class="smallButton">
+    <mat-icon><i class="material-icons">add_circle_outline</i></mat-icon>
+  </button>
+
+  <!--INIZIA LA SEZIONE DEI DETTAGLI-->
   <div class="contenitore">
     <img src={{data.prodotto.img}} class="image">
   </div>
 
   <div class="dettagli">
     <h2> {{data.prodotto.nome}} </h2>
-    <!--<span class="quantita">-->
-      <!--<button mat-button (click)="compra=compra-1"><mat-icon><i class="material-icons">remove</i></mat-icon></button>-->
-      <!--Quantità: {{prodottoDaCarrello.quantitaDaAcquistare}}-->
-      <!--<button mat-button (click)="compra = compra+1"><mat-icon><i class="material-icons">add</i></mat-icon></button>-->
-    <!--</span>-->
+
+    <!--PULSANTI PER MODIFICARE LA QUANTITA'-->
+    <span class="quantita" *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && toggle">
+      <button mat-button (click)="compra=compra-1" [disabled]="compra<=0 || compra+prodottoDaCarrello.quantitaDaAcquistare<=0">
+        <mat-icon><i class="material-icons">remove</i></mat-icon>
+      </button>
+      Quantità: {{compra}}
+      <button mat-button (click)="compra = compra+1" [disabled]="compra+prodottoDaCarrello.quantitaDaAcquistare>data.prodotto.quantitaDisponibile">
+        <mat-icon><i class="material-icons">add</i></mat-icon>
+      </button>
+    </span>
+    <!--FINE PULSANTI PER QUANTITA'-->
+
+    <!--SEZIONE PRINCIPALE CON PREZZI E OFFERTE-->
     <h4> Disponibili: {{data.prodotto.quantitaDisponibile}} </h4>
     <br>
 
@@ -39,6 +71,8 @@
       Prezzo: {{data.prodotto.prezzoScontato | currency:'EUR'}}
     </h4>
     <hr>
+
+    <!--SEZIONE DEI DETTAGLI AGGIUNTIVI-->
     <div>
       <h3>Dettagli prodotto: </h3>
       <h5>
