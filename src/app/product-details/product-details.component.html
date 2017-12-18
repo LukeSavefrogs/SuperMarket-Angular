@@ -1,6 +1,7 @@
 <div>
   <hr>
-  <button mat-raised-button class="smallButton" (click)="toggle = !toggle">
+  <!--PULSANTE PER TOGGLE-->
+  <button mat-raised-button class="smallButton" (click)="toggle = !toggle" *ngIf="logged">
     <mat-icon ><i class="material-icons">add_circle_outline</i></mat-icon>
   </button>
 
