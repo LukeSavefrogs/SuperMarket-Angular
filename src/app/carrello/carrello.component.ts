@@ -57,4 +57,8 @@ export class CarrelloComponent implements OnInit {
     audio.load();
     audio.play();
   }
+
+  roundNumber(num){
+    return this.productServices.roundNumber(num);
+  }
 }

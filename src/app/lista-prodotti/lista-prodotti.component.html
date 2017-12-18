@@ -17,19 +17,19 @@
 <div>
 
   <hr/>
-
+<div>
   <mat-list *ngIf="lista===true">
-    <mat-list-item *ngFor="let prod of listaProdotti" (click)="openProduct(prod)"class="leftBorder">
+    <mat-list-item *ngFor="let prod of listaProdotti" (click)="getSelected(prod)"class="leftBorder">
       <img matListAvatar src={{prod.img}}>
       <h3 matLine class="leftBorder"><strong>{{prod.nome}} </strong></h3>
       <p matLine>
-        <span class="info"> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
-        <span class="info"> Categoria: {{prod.categoria}} </span>
+        <span class="info"> Prezzo: {{prod.prezzoScontato | currency:'EUR'}} </span> <br>
+        <span class="info"> Marca: {{prod.marca}} </span>
       </p>
       <hr>
     </mat-list-item>
   </mat-list>
-
+</div>
 
   <mat-grid-list cols="5" rowHeight="1:1" gutterSize="5" *ngIf="lista===false">
     <mat-grid-tile *ngFor="let prod of listaProdotti" (click)="openProduct(prod)">
@@ -42,7 +42,7 @@
       <mat-grid-tile-footer>
         <p>
           <span>{{prod.nome}}</span> <br>
-          <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+          <span> Prezzo: {{prod.prezzoScontato | currency:'EUR'}} </span> <br>
         </p>
       </mat-grid-tile-footer>
 

@@ -11,7 +11,7 @@
       <img matListAvatar src={{prod.img}} class="preview">
       <h3 matLine><strong>{{prod.nome}} </strong></h3>
       <p matLine>
-        <span> Prezzo: &euro; {{prod.prezzoScontato}} </span> <br>
+        <span> Prezzo: {{prod.prezzoScontato | currency:'EUR'}} </span> <br>
         <span> Quantità: {{prod.quantitaDaAcquistare}} </span>
       </p>
 
@@ -31,7 +31,7 @@
     <hr>
 
     <h3>
-      <strong>Totale: &euro; {{totale}}</strong>
+      <strong>Totale: {{totale | currency:'EUR'}}</strong>
     </h3>
     <button mat-raised-button color="primary" (click)="compra(listProduct)"> Vai al Check-Out</button>
   </div>
