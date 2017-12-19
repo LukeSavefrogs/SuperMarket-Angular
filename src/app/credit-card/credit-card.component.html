@@ -24,7 +24,7 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci numero" name="numcarta" [(ngModel)]="creditCard.numero" pattern="[0-9]*" required autofocus>
+              <input class="form-control" placeholder="Inserisci numero" name="numcarta" [(ngModel)]="creditCard.numero" type="text" required autofocus>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci scadenza" name="scadenza" [(ngModel)]="creditCard.scadenza"  required>
+              <input class="form-control" placeholder="Inserisci scadenza" name="scadenza" [(ngModel)]="creditCard.scadenza" type="text" required>
             </div>
           </div>
         </div>
@@ -44,17 +44,18 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci CCV" name="tel" [(ngModel)]="creditCard.ccv" pattern="[0-9]*" required>
+              <input class="form-control" placeholder="Inserisci CCV" name="ccv" [(ngModel)]="creditCard.ccv" pattern="[0-9]*" required>
             </div>
           </div>
         </div>
+
 
         <div class="form-group">
           <label class="cols-sm-2 control-label">Credito disponibile</label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="	glyphicon glyphicon-globe" aria-hidden="true"></i></span>
-              <input class="form-control" type="number" placeholder="Inserisci credito" name="pv" [(ngModel)]="creditCard.credito" pattern="[0-9]*" required>
+              <input class="form-control" type="text" placeholder="Inserisci Credito" name="credito" [(ngModel)]="creditCard.credito" type="num" required>
             </div>
           </div>
         </div>
@@ -63,7 +64,7 @@
 
 
         <div class="form-group "> <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-          <button type="submit" class="btn btn-info btn-lg" [disabled]="!f.form.valid"(click)="closedDialog()" > Salva
+         <button type="submit" class="btn btn-info btn-lg" [disabled]="!f.form.valid" > Salva
             <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> </button>
         </div>
       </form>
