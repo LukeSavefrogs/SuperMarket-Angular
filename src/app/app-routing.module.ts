@@ -7,6 +7,7 @@ import {RegistrationComponent} from "./registration/registration.component";
 import {CarrelloComponent} from "./carrello/carrello.component";
 import {CreditCardComponent} from "./credit-card/credit-card.component";
 import {SceltaCartaComponent} from "./scelta-carta/scelta-carta.component";
+import {TransazioneComponent} from "./transazione/transazione.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/lista', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'carrello', component: CarrelloComponent},
   {path: 'creditCard', component: CreditCardComponent},
-  {path: 'sceltaCarta', component: SceltaCartaComponent}
+  {path: 'sceltaCarta', component: SceltaCartaComponent},
+  {path: 'transazioni', component: TransazioneComponent}
 ]
 @NgModule({
   imports: [

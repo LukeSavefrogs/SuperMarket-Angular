@@ -7,9 +7,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
-  MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
+import {MatExpansionModule} from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login/login.component";
 import {LoginService} from "./service/login.service";
@@ -23,8 +24,8 @@ import { CarrelloComponent } from './carrello/carrello.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import {CreditCardService} from "./service/credit-card.service";
 import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
-
-
+import { TransazioneComponent } from './transazione/transazione.component';
+import {TransazioneService} from "./service/transazione.service";
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
     CarrelloComponent,
     CreditCardComponent,
     SceltaCartaComponent,
+    TransazioneComponent,
 
   ],
   imports: [
@@ -53,7 +55,9 @@ import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule,
+    MatFormFieldModule,
     ],
 
   providers: [
@@ -63,6 +67,7 @@ import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
     SharedService,
     AuthGuardService,
     InterceptorService,
+    TransazioneService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

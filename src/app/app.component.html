@@ -6,6 +6,10 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/lista"><mat-icon><i class="material-icons">home</i></mat-icon>Home</button>
 
+    <button mat-menu-item routerLink="/transazioni" *ngIf="logged">
+      <mat-icon><i class="material-icons">shopping_cart</i></mat-icon>Transazioni
+    </button>
+
 
     <button mat-menu-item routerLink="/carrello" *ngIf="logged">
       <mat-icon><i class="material-icons">shopping_cart</i></mat-icon>Carrello

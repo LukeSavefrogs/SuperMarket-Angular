@@ -1,0 +1,27 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let transazione of listaTransazioni">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{transazione.codOrdine}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Transazione N. {{transazione.codOrdine}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p *ngFor="let prodotto of transazione.product">
+      Nome:{{prodotto.nome}}
+      <br>
+      Marca:{{prodotto.marca}}
+
+      <br>
+      Prezzo Scontato:{{prodotto.prezzoScontato}}
+
+      <br>
+      Quantità acquistata:{{prodotto.quantitaDaAcquistare}}
+    <br>
+    </p>
+
+
+  </mat-expansion-panel>
+</mat-accordion>
