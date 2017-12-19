@@ -15,7 +15,7 @@
 <body>
 <!---->
 <div class="container">
-  <h2>Seleziona Carte per il pagamento</h2>
+  <h2>Clicca su una delle tue carte per procedere all'acquisto</h2>
   <table class="table table-bordered">
     <thead>
     <tr>
@@ -25,6 +25,14 @@
       <th>Credito disponibile</th>
     </tr>
     </thead>
+    <tbody ng *ngFor="let carta of listaCard">
+    <tr (click)="compraProdotti(carta)" style="cursor: pointer">
+      <td>{{carta.numero}}</td>
+      <td>{{carta.scadenza}}</td>
+      <td>{{carta.ccv}}</td>
+      <td>{{carta.credito}}</td>
+    </tr>
+    </tbody>
   </table>
 </div>
 

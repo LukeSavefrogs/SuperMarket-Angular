@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {CreditCardService} from "../service/credit-card.service";
 import {CreditCard} from "../model/CreditCard";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material";
 
 
 import {CreditCardComponent} from "../credit-card/credit-card.component";
+import {ProductService} from "../service/product.service";
 
 
 @Component({
@@ -17,11 +18,21 @@ export class SceltaCartaComponent implements OnInit {
   listaCard: CreditCard[] = new Array<CreditCard>();
   selected: CreditCard = new CreditCard();
 
-  constructor(private service: CreditCardService, public dialog: MatDialog) {
+  constructor(private service: CreditCardService, public dialog: MatDialog,private productService: ProductService) {
   }
 
   ngOnInit() {
     this.getListCardUser();
+  }
+
+
+  compraProdotti(carta) {
+    this.productService.compraProdotti(this.productService.getCarrello(),carta.id).subscribe(data => {
+      this.productService.cleanCarrello();
+      console.log(data);
+    }, err => {
+      console.log(err);
+    })
   }
 
   getListCardUser() {
@@ -40,7 +51,7 @@ export class SceltaCartaComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-
+      this.getListCardUser()
     });
   }
 }

@@ -10,7 +10,6 @@ import {SceltaCartaComponent} from "./scelta-carta/scelta-carta.component";
 import {TransazioneComponent} from "./transazione/transazione.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/lista', pathMatch: 'full'},
   {path: 'lista', component: ListaProdottiComponent},
   {path: 'login', component: LoginComponent},
   {path: 'detail/:id', component: ProductDetailsComponent},

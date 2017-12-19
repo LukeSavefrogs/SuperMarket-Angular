@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "../model/Product";
 import {BACKEND_URL} from "../utils";
 import {of} from "rxjs/observable/of";
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'})
+};
 @Injectable()
 export class ProductService {
 
@@ -26,7 +29,9 @@ export class ProductService {
     console.log("Offerte Generate");
     return this.http.get<string>(BACKEND_URL + "/product/generaOfferte")
   }
-
+  compraProdotti(listaProdotti,idCarta): Observable<Product>{
+    return this.http.post<Product>(BACKEND_URL+"/product/addProductById/"+idCarta,listaProdotti,httpOptions)
+  }
   getCarrello() {
     if (localStorage.getItem("carrello") == null) {
       this.listProdotti = new Array;
@@ -139,6 +144,10 @@ export class ProductService {
       }
     }
     return of(prodottoCercato)
+  }
+  cleanCarrello(){
+    this.listProdotti = new Array;
+    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
   }
 
   roundNumber(num){

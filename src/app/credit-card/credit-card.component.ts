@@ -2,21 +2,22 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {CreditCard} from "../model/CreditCard";
 import {CreditCardService} from "../service/credit-card.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { Location } from '@angular/common';
 import {Router} from "@angular/router";
-
 @Component({
   selector: 'app-credit-card',
   templateUrl: './credit-card.component.html',
   styleUrls: ['./credit-card.component.css']
 })
 export class CreditCardComponent implements OnInit {
-  someValue: boolean = false;
+
   listaCard: CreditCard[] = new Array<CreditCard>();
-  selected: CreditCard = new CreditCard();
-  dialogRef: MatDialogRef<CreditCardComponent>;
+
+
   creditCard: CreditCard= new CreditCard();
 
-  constructor(private service: CreditCardService)
+  constructor(private service: CreditCardService,private dialogRef: MatDialogRef<CreditCardComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,private router: Router,private location: Location)
   { }
 
 
@@ -31,9 +32,11 @@ export class CreditCardComponent implements OnInit {
     })
   }
     addCard() {
-      this.service.addCard(this.addCard()).subscribe(data => {
+    console.log(this.creditCard)
+      this.service.addCard(this.creditCard).subscribe(data => {
         console.log(data);
         this.closedDialog();
+
       }, err => {
         console.log(err);
       })
@@ -49,6 +52,8 @@ export class CreditCardComponent implements OnInit {
     }
     closedDialog() {
       this.dialogRef.close();
+
+
     }
     }
 
