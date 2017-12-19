@@ -11,24 +11,20 @@
   <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
 </head>
-<!--numero: string;-->
-<!--scadenza: string;-->
-<!--ccv: string;-->
-<!--credito: number;-->
 
 <body>
 <div class="container">
   <div class="row main">
     <div class="main-login main-center">
       <h5>REGISTRAZIONE NUOVA CARTA DI CREDITO</h5>
-      <form (submit)="registration()" #f="ngForm">
+      <form (submit)="addCard()" #f="ngForm">
 
         <div class="form-group">
-          <label class="cols-sm-2 control-label">N° Carta</label>
+          <label class="cols-sm-2 control-label">Numero Carta</label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci numero" name="numCarta" [(ngModel)]="creditCard.numero" pattern="[0-9]*" required autofocus>
+              <input class="form-control" placeholder="Inserisci numero" name="numcarta" [(ngModel)]="creditCard.numero" pattern="[0-9]*" required autofocus>
             </div>
           </div>
         </div>
@@ -38,7 +34,7 @@
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci scadenza" name="psw" [(ngModel)]="creditCard.scadenza"  required>
+              <input class="form-control" placeholder="Inserisci scadenza" name="scadenza" [(ngModel)]="creditCard.scadenza"  required>
             </div>
           </div>
         </div>
@@ -67,7 +63,7 @@
 
 
         <div class="form-group "> <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-          <button type="submit" class="btn btn-info btn-lg" [disabled]="!f.form.valid"> Salva
+          <button type="submit" class="btn btn-info btn-lg" [disabled]="!f.form.valid"(click)="closeDialog()" > Salva
             <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> </button>
         </div>
       </form>

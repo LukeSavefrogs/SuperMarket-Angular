@@ -56,6 +56,33 @@ export class ProductService {
     console.log("Aggiunto: ", prodotto)       //FUNZIONA
   }
 
+  //AGGIUNTA DI N PRODOTTI AL CARRELLO
+  compraQuantita (quant: number, prodotto: Product){
+    this.getCarrello()
+    let somma: number = 1;                //SERVER RITORNA QUANTITADAACQUISTARE = 1 DI DEFAULT, SE SI FACESSE +1 AL PRIMO GIRO ANDREBBE A 2
+    let passato: boolean = false
+
+    for (let prod of this.listProdotti) {
+      if (prod.id == prodotto.id) {
+        passato= true
+        //somma = somma + prod.quantitaDaAcquistare
+        if(prodotto.quantitaDaAcquistare == undefined){
+          prodotto.quantitaDaAcquistare = 0
+          prodotto.quantitaDaAcquistare += quant
+        }
+          else prodotto.quantitaDaAcquistare += quant
+        this.listProdotti.splice(this.listProdotti.indexOf(prod), 1)    //Cancello il prodotto dal carrello
+      }
+    }
+
+    if (passato == false) prodotto.quantitaDaAcquistare = quant
+    //prodotto.quantitaDaAcquistare = somma + quant
+    //prodotto.comprato = true
+    this.listProdotti.push(prodotto);                                               //Aggiungoil prodotto
+    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
+    console.log("Aggiunto: ", prodotto)       //FUNZIONA
+  }
+
   //ELIMINAZIONE DI UN'INTERO PRODOTTO
   deleteCarrello(product): Observable<Product> {
     this.getCarrello()
@@ -118,22 +145,4 @@ export class ProductService {
     return parseFloat(num).toFixed(2);
   }
 
-  compraQuantita (quant: number, prodotto: Product){
-    this.getCarrello()
-    let somma: number = 1;                //SERVER RITORNA QUANTITADAACQUISTARE = 1 DI DEFAULT, SE SI FACESSE +1 AL PRIMO GIRO ANDREBBE A 2
-
-    for (let prod of this.listProdotti) {
-      if (prod.id == prodotto.id) {
-        //somma = somma + prod.quantitaDaAcquistare
-        prodotto.quantitaDaAcquistare += quant
-        this.listProdotti.splice(this.listProdotti.indexOf(prod), 1, prodotto)    //Cancello il prodotto dal carrello
-      }
-    }
-
-    //prodotto.quantitaDaAcquistare = somma + quant
-    //prodotto.comprato = true
-    //this.listProdotti.push(prodotto);                                               //Aggiungoil prodotto
-    localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
-    console.log("Aggiunto: ", prodotto)       //FUNZIONA
-  }
 }

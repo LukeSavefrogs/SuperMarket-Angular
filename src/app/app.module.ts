@@ -7,7 +7,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
-  MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
+  MatButtonToggleModule,
+  MatIcon,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -56,8 +58,8 @@ import {TransazioneService} from "./service/transazione.service";
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatExpansionModule,
-    MatFormFieldModule,
+    MatExpansionModule
+
     ],
 
   providers: [

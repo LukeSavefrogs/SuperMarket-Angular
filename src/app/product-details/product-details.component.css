@@ -42,16 +42,11 @@
   min-width: 36px !important;
   position: relative;
   float: right;
-  padding: 0 36px 0 36px !important;
+  padding: 0 0 0 0 !important;
+  background-color: rgba(0, 0, 0, 0.24);
 }
 
-.mat-button.mat-small {
-  min-width: 1px;
-}
-
-.button.smallButton.mat-button{
-  min-width: 36px !important;
-  position: relative;
-  float: right;
-  padding: 0 36px 0 36px !important;
+.mediumButton{
+  min-width:40px !important;
+  padding: 0 0 0 0 !important;
 }

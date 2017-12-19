@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CreditCard} from "../model/CreditCard";
 import {CreditCardService} from "../service/credit-card.service";
-import {MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-credit-card',
@@ -9,11 +10,15 @@ import {MatDialogRef} from "@angular/material";
   styleUrls: ['./credit-card.component.css']
 })
 export class CreditCardComponent implements OnInit {
-
+  someValue: boolean = false;
   listaCard: CreditCard[] = new Array<CreditCard>();
   selected: CreditCard = new CreditCard();
+  dialogRef: MatDialogRef<CreditCardComponent>;
+  creditCard: CreditCard= new CreditCard();
 
-  constructor(private service: CreditCardService, private dialogRef: MatDialogRef<CreditCardComponent>) { }
+  constructor(private service: CreditCardService)
+  { }
+
 
   ngOnInit() {
   }

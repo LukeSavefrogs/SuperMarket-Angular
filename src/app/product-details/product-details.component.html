@@ -1,5 +1,10 @@
 <div>
   <hr>
+  <!--PULSANTE PER TOGGLE-->
+  <button mat-raised-button class="smallButton" (click)="toggle = !toggle" *ngIf="logged">
+    <mat-icon ><i class="material-icons">add_circle_outline</i></mat-icon>
+  </button>
+
   <!--PULSANTE PER REGISTRAZIONE SE NON LOGGATO-->
   <button mat-raised-button color="warn" class="buttons" (click)="faiLoggare()"
           *ngIf="!loggedUser">
@@ -9,7 +14,7 @@
 
   <!--PULSANTE PER AGGIUNTA DEL PRODOTTO AL CARRELLO PER LA PRIMA VOLTA-->
   <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
-          *ngIf="compra === undefined && loggedUser"
+          *ngIf="prodottoDaCarrello.quantitaDaAcquistare === undefined && loggedUser && !toggle"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
           data.prodotto.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
@@ -17,8 +22,8 @@
   </button>
 
   <!--PULSANTE PER VISUALIZZARE LA QUANTITA' ACQUISTATA-->
-  <button mat-raised-button color="basic" class="buttons" (click)="aggiungiQuantita(compra, prodottoDaCarrello)"
-          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && compra == prodottoDaCarrello.quantitaDaAcquistare"
+  <button mat-raised-button color="accent" class="buttons" (click)="aggiungiProdotto(data.prodotto)"
+          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && !toggle"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
           prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
@@ -26,16 +31,12 @@
   </button>
 
   <!--PULSANTE PER CONFERMARE L'AGGIUNTA DELLA QUANTITA' SCELTA-->
-  <button mat-raised-button color="basic" class="buttonClicked" (click)="aggiungiQuantita(compra, prodottoDaCarrello)"
-          *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && toggle && compra != prodottoDaCarrello.quantitaDaAcquistare"
+  <button mat-raised-button color="basic" class="buttons" (click)="aggiungiQuantita(compra, data.prodotto)"
+          *ngIf="toggle"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
           prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
     <mat-icon>add_shopping_cart</mat-icon>
-    Aggiungi al carrello
-  </button>
-
-  <button mat-button class="smallButton">
-    <mat-icon><i class="material-icons">add_circle_outline</i></mat-icon>
+    Aggiungi {{compra}} al carrello
   </button>
 
   <!--INIZIA LA SEZIONE DEI DETTAGLI-->
@@ -47,12 +48,13 @@
     <h2> {{data.prodotto.nome}} </h2>
 
     <!--PULSANTI PER MODIFICARE LA QUANTITA'-->
-    <span class="quantita" *ngIf="prodottoDaCarrello.quantitaDaAcquistare>=1 && toggle">
-      <button mat-button (click)="compra=compra-1" [disabled]="compra<=0 || compra+prodottoDaCarrello.quantitaDaAcquistare<=0">
+    <span class="quantita" *ngIf="toggle">
+      <button mat-button (click)="compra=compra-1" class="mediumButton" [disabled]="compra<=0">
         <mat-icon><i class="material-icons">remove</i></mat-icon>
       </button>
       Quantità: {{compra}}
-      <button mat-button (click)="compra = compra+1" [disabled]="compra+prodottoDaCarrello.quantitaDaAcquistare>data.prodotto.quantitaDisponibile">
+      <button mat-button (click)="compra = compra+1" class="mediumButton"
+              [disabled]="compra+prodottoDaCarrello.quantitaDaAcquistare>=data.prodotto.quantitaDisponibile">
         <mat-icon><i class="material-icons">add</i></mat-icon>
       </button>
     </span>
