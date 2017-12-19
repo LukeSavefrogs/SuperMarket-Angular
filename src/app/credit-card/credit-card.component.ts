@@ -31,9 +31,9 @@ export class CreditCardComponent implements OnInit {
     })
   }
     addCard() {
-      this.service.addCard(this.addCard()).subscribe(data => {
+      this.service.addCard(this.creditCard).subscribe(data => {
         console.log(data);
-        this.closedDialog();
+        // this.closedDialog();
       }, err => {
         console.log(err);
       })
@@ -47,6 +47,8 @@ export class CreditCardComponent implements OnInit {
         console.log(err);
       })
     }
+
+
     closedDialog() {
       this.dialogRef.close();
     }
