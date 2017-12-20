@@ -6,6 +6,8 @@ import {MatDialog} from "@angular/material";
 
 import {CreditCardComponent} from "../credit-card/credit-card.component";
 import {ProductService} from "../service/product.service";
+import {DialogoComponent} from "../dialogo/dialogo.component";
+
 
 
 @Component({
@@ -18,7 +20,7 @@ export class SceltaCartaComponent implements OnInit {
   listaCard: CreditCard[] = new Array<CreditCard>();
   selected: CreditCard = new CreditCard();
 
-  constructor(private service: CreditCardService, public dialog: MatDialog,private productService: ProductService) {
+  constructor(private service: CreditCardService, public dialog: MatDialog,private productService: ProductService, public dialogo: MatDialog,) {
   }
 
   ngOnInit() {
@@ -54,4 +56,16 @@ export class SceltaCartaComponent implements OnInit {
       this.getListCardUser()
     });
   }
+
+openDialogoCard(carta) {
+  const dialogRef = this.dialogo.open(DialogoComponent, {
+    data: {carta},
+    height: '20%',
+    width: '30%'
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+
+  });
+}
 }

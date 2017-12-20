@@ -33,8 +33,8 @@
   <!--PULSANTE PER CONFERMARE L'AGGIUNTA DELLA QUANTITA' SCELTA-->
   <button mat-raised-button color="basic" class="buttons" (click)="aggiungiQuantita(compra, data.prodotto)"
           *ngIf="toggle"
-          [disabled]="data.prodotto.quantitaDisponibile<=0 ||
-          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
+          [disabled]="(data.prodotto.quantitaDisponibile<=0 ||
+          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile)&&data.prodotto.quantitaDaAcquistare<=0">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi {{compra}} al carrello
   </button>

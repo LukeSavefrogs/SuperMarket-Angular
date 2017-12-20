@@ -14,6 +14,7 @@
 </head>
 <body>
 <!---->
+
 <div class="container">
   <h2>Clicca su una delle tue carte per procedere all'acquisto</h2>
   <table class="table table-bordered">
@@ -26,7 +27,7 @@
     </tr>
     </thead>
     <tbody ng *ngFor="let carta of listaCard">
-    <tr (click)="compraProdotti(carta)" style="cursor: pointer">
+    <tr (click)="openDialogoCard(carta)" style="cursor: pointer">
       <td>{{carta.numero}}</td>
       <td>{{carta.scadenza}}</td>
       <td>{{carta.ccv}}</td>
