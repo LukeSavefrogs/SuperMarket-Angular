@@ -9,6 +9,7 @@ import {CreditCardComponent} from "./credit-card/credit-card.component";
 import {SceltaCartaComponent} from "./scelta-carta/scelta-carta.component";
 import {TransazioneComponent} from "./transazione/transazione.component";
 import {DialogoComponent} from "./dialogo/dialogo.component";
+import {DialogSuccessComponent} from "./dialog-success/dialog-success.component";
 
 const routes: Routes = [
   {path: '', component:ListaProdottiComponent, pathMatch:"full"},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'creditCard', component: CreditCardComponent},
   {path: 'sceltaCarta', component: SceltaCartaComponent},
   {path: 'transazioni', component: TransazioneComponent},
-  {path: 'dialogo', component: DialogoComponent}
+  {path: 'dialogo', component: DialogoComponent},
+  {path: 'dialogoSuccess', component: DialogSuccessComponent}
 ]
 @NgModule({
   imports: [
