@@ -64,7 +64,14 @@ span.psw {
     display: block;
     float: none;
   }
+
   .cancelbtn {
     width: 100%;
+  }
+
+  body {
+    background: url("https://www.choice.com.au/~/media/9abe2a7b08f04a65ab3c97d6e3b90e70.ashx?jq=80&w=994&h=559") no-repeat;
+
+    background-size: cover;
   }
 }

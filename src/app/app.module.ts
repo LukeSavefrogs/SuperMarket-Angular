@@ -28,6 +28,8 @@ import {CreditCardService} from "./service/credit-card.service";
 import { SceltaCartaComponent } from './scelta-carta/scelta-carta.component';
 import { TransazioneComponent } from './transazione/transazione.component';
 import {TransazioneService} from "./service/transazione.service";
+import { DialogoComponent } from './dialogo/dialogo.component';
+import { DialogSuccessComponent } from './dialog-success/dialog-success.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import {TransazioneService} from "./service/transazione.service";
     CreditCardComponent,
     SceltaCartaComponent,
     TransazioneComponent,
+    DialogoComponent,
+    DialogSuccessComponent,
 
   ],
   imports: [

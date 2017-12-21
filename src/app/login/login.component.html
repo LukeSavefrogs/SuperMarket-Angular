@@ -1,3 +1,4 @@
+<body>
 <form (submit)="login()">
   <div class="imgcontainer">
     <h1 class="avatar"> LOGIN  </h1>
@@ -5,16 +6,17 @@
 
   <div class="container">
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="user.username" required autofocus>
+    <input type="text" placeholder="Inserisci Username" name="username" [(ngModel)]="user.username" pattern="[a-z\d]+([\.\_]?[a-z\d]+)+@[a-z\d]+(\.[a-z]+)" required autofocus>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="user.password"  required>
+    <input type="password" placeholder="Inserisci Password" name="psw" [(ngModel)]="user.password"  required>
 
     <button type="submit">Login</button>
-    <input type="checkbox" checked="checked"> Remember me
+    <input type="checkbox" checked="checked"> Ricordami
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn" routerLink='/registration'> Registrati </button>
   </div>
 </form>
+</body>

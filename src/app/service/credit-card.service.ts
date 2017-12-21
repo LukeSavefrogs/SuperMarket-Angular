@@ -19,7 +19,8 @@ export class CreditCardService {
     return this.http.get<Array<CreditCard>>(BACKEND_URL + "/creditCard/getCardUser");
   }
   addCard(creditCard): Observable<CreditCard>  {
-    return this.http.post<CreditCard>(BACKEND_URL + "/creditCard/addCartaCredito", httpOptions);
+    console.log("sono nel service: "+ creditCard)
+    return this.http.post<CreditCard>(BACKEND_URL + "/creditCard/addCartaCredito",creditCard, httpOptions); // quando c'è il request body sul server aggiungere alla chiamata il body (in questo caso credit card)
   }
   deleteCreditCard(creditCard): Observable<CreditCard> {
     return this.http.delete<CreditCard>(BACKEND_URL + "/creditcard/deletecard/" + creditCard.id);
