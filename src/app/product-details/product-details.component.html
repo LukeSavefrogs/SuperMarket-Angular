@@ -34,7 +34,7 @@
   <button mat-raised-button color="basic" class="buttons" (click)="aggiungiQuantita(compra, data.prodotto)"
           *ngIf="toggle"
           [disabled]="data.prodotto.quantitaDisponibile<=0 ||
-          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile">
+          prodottoDaCarrello.quantitaDaAcquistare >= data.prodotto.quantitaDisponibile||compra==0">
     <mat-icon>add_shopping_cart</mat-icon>
     Aggiungi {{compra}} al carrello
   </button>
@@ -49,12 +49,12 @@
 
     <!--PULSANTI PER MODIFICARE LA QUANTITA'-->
     <span class="quantita" *ngIf="toggle">
-      <button mat-button (click)="compra=compra-1" class="mediumButton" [disabled]="compra<=0">
+      <button mat-button (click)="compra=compra-1" class="mediumButton" [disabled]="compra<=0||data.prodotto.quantitaDisponibile==0">
         <mat-icon><i class="material-icons">remove</i></mat-icon>
       </button>
       Quantità: {{compra}}
       <button mat-button (click)="compra = compra+1" class="mediumButton"
-              [disabled]="compra+prodottoDaCarrello.quantitaDaAcquistare>=data.prodotto.quantitaDisponibile">
+              [disabled]="compra+prodottoDaCarrello.quantitaDaAcquistare>=data.prodotto.quantitaDisponibile||data.prodotto.quantitaDisponibile==0">
         <mat-icon><i class="material-icons">add</i></mat-icon>
       </button>
     </span>
