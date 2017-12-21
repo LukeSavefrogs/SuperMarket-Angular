@@ -10,7 +10,7 @@ import {
   MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule,
   MatIcon,
-  MatToolbarModule, MatTooltipModule
+  MatToolbarModule, MatTooltipModule, MatTableModule
 } from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing.module";
@@ -62,8 +62,8 @@ import { DialogSuccessComponent } from './dialog-success/dialog-success.componen
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatExpansionModule
-
+    MatExpansionModule,
+    MatTableModule
     ],
 
   providers: [

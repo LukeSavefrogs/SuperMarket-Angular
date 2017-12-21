@@ -31,16 +31,17 @@
       <td>{{carta.numero}}</td>
       <td>{{carta.scadenza}}</td>
       <td>{{carta.ccv}}</td>
-      <td>{{carta.credito}}</td>
+      <td>{{carta.credito | currency: 'EUR'}}</td>
     </tr>
     </tbody>
   </table>
+  <button mat-raised-button color="primary" type="button" (click)="openDialogCard()"> Registra nuova carta </button>
 </div>
 
 <!--//-->
 
 
-<div class="container" style="background-color:#f1f1f1">
-  <button type="button" class="cancelbtn" (click)="openDialogCard()"> Registra nuova carta </button>
+<div>
+
 </div>
 </body>
