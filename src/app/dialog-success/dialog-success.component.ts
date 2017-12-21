@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './dialog-success.component.html',
   styleUrls: ['./dialog-success.component.css']
 })
-export class DialogSuccessComponent implements OnInit {
+export class DialogSuccessComponent implements OnInit { // transazione eseguita!
 
   constructor(private dialogRef: MatDialogRef<DialogSuccessComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,router:Router) { }

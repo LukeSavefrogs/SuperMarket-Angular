@@ -16,15 +16,15 @@
 <div class="container">
   <div class="row main">
     <div class="main-login main-center">
-      <h5>REGISTRAZIONE NUOVA CARTA DI CREDITO</h5>
+      <h5>REGISTRAZIONE NUOVA CARTA</h5>
       <form (submit)="addCard()" #f="ngForm">
 
         <div class="form-group">
           <label class="cols-sm-2 control-label">Numero Carta</label>
           <div class="cols-sm-10">
             <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci numero" name="numcarta" [(ngModel)]="creditCard.numero" type="text" required autofocus>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i></span>
+              <input class="form-control" placeholder="Inserisci il numero della carta" name="numcarta" [(ngModel)]="creditCard.numero" type="text" required autofocus>
             </div>
           </div>
         </div>
@@ -33,8 +33,8 @@
           <label class="cols-sm-2 control-label">Data di scadenza</label>
           <div class="cols-sm-10">
             <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci scadenza" name="scadenza" [(ngModel)]="creditCard.scadenza" type="text" required>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+              <input class="form-control" placeholder="Inserisci data di scadenza (MM/AAAA)" name="scadenza" [(ngModel)]="creditCard.scadenza" type="text" required>
             </div>
           </div>
         </div>
@@ -43,19 +43,19 @@
           <label class="cols-sm-2 control-label">CCV</label>
           <div class="cols-sm-10">
             <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-              <input class="form-control" placeholder="Inserisci CCV" name="ccv" [(ngModel)]="creditCard.ccv" pattern="[0-9]*" required>
+              <span class="input-group-addon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+              <input class="form-control" placeholder="Inserisci codice CCV (ultime 3 cifre)" name="ccv" [(ngModel)]="creditCard.ccv" pattern="[0-9]*" required>
             </div>
           </div>
         </div>
 
 
         <div class="form-group">
-          <label class="cols-sm-2 control-label">Credito disponibile</label>
+          <label class="cols-sm-2 control-label">Credito</label>
           <div class="cols-sm-10">
             <div class="input-group">
-              <span class="input-group-addon"><i class="	glyphicon glyphicon-globe" aria-hidden="true"></i></span>
-              <input class="form-control" type="text" placeholder="Inserisci Credito" name="credito" [(ngModel)]="creditCard.credito" type="num" required >
+              <span class="input-group-addon"><i class="glyphicon glyphicon-euro" aria-hidden="true"></i></span>
+              <input class="form-control" type="text" placeholder="Inserisci credito disponibile sulla carta" name="credito" [(ngModel)]="creditCard.credito" type="num" required >
             </div>
           </div>
         </div>

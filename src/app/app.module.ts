@@ -8,9 +8,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
   MatDialogModule, MatGridListModule, MatIconModule, MatListModule, MatMenuModule, MatTabsModule,
-  MatButtonToggleModule,
-  MatIcon,
-  MatToolbarModule, MatTooltipModule
+  MatButtonToggleModule, MatToolbarModule, MatTooltipModule, MatCardModule, MatCardContent, MatInputModule,
+  MatRadioModule
 } from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {AppRoutingModule} from "./app-routing.module";
@@ -62,9 +61,11 @@ import { DialogSuccessComponent } from './dialog-success/dialog-success.componen
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatExpansionModule
-
-    ],
+    MatExpansionModule,
+    MatCardModule,
+    MatInputModule,
+    MatRadioModule
+  ],
 
   providers: [
     ProductService,

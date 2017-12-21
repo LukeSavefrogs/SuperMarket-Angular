@@ -145,7 +145,7 @@ export class ProductService {
     }
     return of(prodottoCercato)
   }
-  cleanCarrello(){
+  cleanCarrello(){  //cancello tutto il carrello
     this.listProdotti = new Array;
     localStorage.setItem("carrello", JSON.stringify(this.listProdotti))
   }

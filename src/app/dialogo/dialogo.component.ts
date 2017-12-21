@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   templateUrl: './dialogo.component.html',
   styleUrls: ['./dialogo.component.css']
 })
-export class DialogoComponent implements OnInit {
+export class DialogoComponent implements OnInit {  //conferma d'acquisto (si/no)
   carta:CreditCard=new CreditCard;
   constructor(private dialogRef: MatDialogRef<DialogoComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,private productService:ProductService,private location:Location,public dialogSuccess: MatDialog,private router:Router) { }
@@ -42,7 +42,7 @@ export class DialogoComponent implements OnInit {
       height: '20%',
       width: '30%'
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {  //da dialos success riparte da qua e ti rimanda alla lista prodotti
       console.log(`Dialog result: ${result}`);
       this.router.navigate(['lista'])
 
