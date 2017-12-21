@@ -20,7 +20,6 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      
       <th>N° Carta</th>
       <th>Scadenza</th>
       <th>CCV</th>
@@ -28,19 +27,15 @@
     </tr>
     </thead>
     <tbody ng *ngFor="let carta of listaCard">
-
     <tr (click)="openDialogoCard(carta)" style="cursor: pointer">
-      <!--<input type="checkbox" ng-model="checked" ng-checked="true"><br/>-->
-
       <td>{{carta.numero}}</td>
       <td>{{carta.scadenza}}</td>
       <td>{{carta.ccv}}</td>
-      <td>{{carta.credito}}</td>
-
+      <td>{{carta.credito | currency: 'EUR'}}</td>
     </tr>
-
     </tbody>
   </table>
+  <button mat-raised-button color="primary" type="button" (click)="openDialogCard()"> Registra nuova carta </button>
 </div>
 
 <!--//-->
